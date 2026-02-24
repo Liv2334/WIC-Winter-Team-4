@@ -191,3 +191,8 @@ button:hover {
     --error-color: #f8bbd0;
     --error-color-border: #e63946;
 }
+
+
+.container {
+  text-align: center;
+}
