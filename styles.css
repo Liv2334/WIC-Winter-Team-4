@@ -122,15 +122,16 @@ button:hover {
 
 .navbar ul {
     z-index: 1000;
-    list-style-type:none;
+    list-style:none;
     overflow:hidden;
     width:100%;
+    
      /* Ensures the navbar is on top of other elements */
 }
 
 
 .navbar ul li {
-    float: left;
+    float: center;
     margin: 10px;
 }
 
