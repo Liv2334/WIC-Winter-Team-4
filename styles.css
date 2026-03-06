@@ -7,18 +7,18 @@
 
 
 body {
-    /* Add a background color or image */
-    background-color: var(--bg-color); /* see bottom of file for color variables */
+    /* Add a background color or image */ 
+    background-color: var(--bg-color); /* see bottom of file for color variables */ 
+    
+    /* Customize the default size, color, and font for text*/ 
+    font-size: 16px; color: var(--text-color); 
+    font-family: Tahoma, sans-serif; 
+    /* This tells the browser: "Try to use Tahoma, and if you can't find it, 
+    use any sans-serif font." */ 
 
-
-    /* Customize the default size, color, and font for text*/
-    font-size: 16px;
-    color: var(--text-color);
-    font-family: Tahoma, sans-serif; /* This tells the browser: "Try to use `Tahoma`, and if you can't find it, use any sans-serif font." */
-
-
-    /* Put space around the edges of the webpage */
-    margin: 50px;
+    /* Put space around the edges of the webpage */ 
+    margin: 0;
+    padding: 0 50px 50px 50px;
 }
 
 
@@ -71,7 +71,12 @@ p {
 
 a,
 a * {
-   
+    color: var(--accent-color-dark);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--accent-color-medium);
 }
 
 
@@ -99,7 +104,22 @@ button:hover {
 
 
 .header { /* Example A: This styles elements with class="header" */
-   
+    text-align: center;
+    padding: 20px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 80px; /* prevents navbar overlap */
+    text-align: center;
+}
+
+.header-item {
+    max-width: 90%;
 }
 
 
@@ -110,7 +130,11 @@ button:hover {
 
 
 .footer { /* Example B: This styles elements with class="footer" */
-   
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--accent-color-light);
+    border-radius: 8px;
 }
 
 
@@ -119,28 +143,31 @@ button:hover {
   - Add style rules for your website's navbar
 ***/
 
-
 .navbar ul {
+    list-style-type: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--accent-color-darkest);
+    padding: 20px 0;
     z-index: 1000;
-    list-style:none;
-    overflow:hidden;
-    width:100%;
-    
-     /* Ensures the navbar is on top of other elements */
+    text-align: center;
+    margin: 0;
 }
-
 
 .navbar ul li {
-    float: center;
-    margin: 10px;
+    display: inline-block;   /* puts buttons in a row */
+    margin: 0 10px;
 }
 
-
-.navbar ul li a { 
+.navbar ul li a {
+    text-decoration: none;
 }
-
 
 .navbar ul li a:hover {
+    text-decoration: underline;
 }
 
 
@@ -151,7 +178,15 @@ button:hover {
   - Add style rules for your website's About section
 ***/
 
-
+#about-topic {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--accent-color-light);
+    border-radius: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 /*** Links Section ***
@@ -159,12 +194,39 @@ button:hover {
   - Add style rules for your website's Links section
 ***/
 
+#recent-news {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
 
-
-
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 
 /*** Dark Mode [PLACEHOLDER] ***/
+.dark-mode {
+    background-color: var(--bg-color-dark-mode);
+    color: var(--text-color-dark-mode);
+}
 
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4 {
+    color: var(--accent-color-light);
+}
+
+.dark-mode a {
+    color: var(--accent-color-green);
+}
+
+.dark-mode .navbar ul {
+    background-color: black;
+}
 
 /*** Custom Colors (OPTIONAL) ***
   Purpose:

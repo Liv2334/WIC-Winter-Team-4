@@ -1,74 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <title>Filming Location Tracker</title> <!-- the content here will only show in the tab and in the metadata about the page -->
+    <title>Pop Culture Travel Guide</title>
     <link rel="icon" href="img/website-icon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link href="reset.css" rel="stylesheet" type="text/css" />
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="reset.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 
+<body class="container">
 
-<body>
 
-    <!--- HEADINGS--->
-     <header class="header-container">
-        <img src="img/headerImage.jpeg" alt="Header Image" class="header-item" width="500px" height="350px"/>
-         <!-- if you want to add an image, use this tag and link to the actual image location in your project with the src attribute -->
-        <h1 class="header-item">Pop Culture Tourism</h1> <!-- First Text -->
-        <h3 class="header-item">Find the filming locations for all your favorite movies and TV shows!</h3> 
-    <!-- Second Text -->
-        
+    <header class="header-container">
+
+        <h1 class="header-item">Pop Culture Tourism</h1>
+
+        <h3 class="header-item">
+        Travel to the real filming locations of your favorite movies and TV shows
+        </h3>
+
     </header>
 
-   
-
-
-    <!--- ABOUT --->
-    <body class="container">
-    <h2>About</h2>
-    <p> 
-        Ever want to explore your favorite worlds? Bring these locations to life by
-        visting their real-world filming locations. Select the movie or tv show you would
-        like to visit from the menu below and learn all about the different places you can visit.
-    </p>
-    </body>
-
-    <!--- NAVBAR (to-do later) --->
     <nav class="navbar">
         <ul>
-            <li><a href="Star_Wars.html"><button id="theme-button">Star Wars</button></a></li>
-            <li><a href="pride_prej.html"><button id="theme-button">Pride & Prejudice</button></a></li>
-            <li><a href="twilight.html"><button id="theme-button">Twilight</button></a></li>
-            <li><a href="vampire_diaries.html"><button id="theme-button">The Vampire Diaries</button></a></li>
-            <li><a href="star_trek.html"><button id="theme-button">Star Trek</button></a></li>
-            <li><a href="hunger_games.html"><button id="theme-button">The Hunger Games</button></a></li>
-            <li><a href="harry_potter.html"><button id="theme-button">Harry Potter</button></a></li>
+            <li><a href="Star_Wars.html"><button class="nav-button">Star Wars</button></a></li>
+            <li><a href="pride_prej.html"><button class="nav-button">Pride & Prejudice</button></a></li>
+            <li><a href="twilight.html"><button class="nav-button">Twilight</button></a></li>
+            <li><a href="vampire_diaries.html"><button class="nav-button">The Vampire Diaries</button></a></li>
+            <li><a href="star_trek.html"><button class="nav-button">Star Trek</button></a></li>
+            <li><a href="hunger_games.html"><button class="nav-button">The Hunger Games</button></a></li>
+            <li><a href="harry_potter.html"><button class="nav-button">Harry Potter</button></a></li>
+
+            <!-- Dark mode button -->
+            <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    <!--- DATA --->
-    <img src="img/harry-potter-location.jpeg" alt = "Example scene vs real-life" width = "350" height = "300"/>
+    <!-- ABOUT -->
+    <section class="about">
 
+        <h2>About This Guide</h2>
 
+        <p>
+        Pop culture tourism allows fans to explore the real-world places where
+        their favorite movies and TV shows were filmed.
+        This guide helps you discover those locations so you can turn
+        fictional worlds into real travel destinations.
+        </p>
 
-    <!--- Additional Resources --->
-    <h2>Additional Resources</h2>
+        <p>
+        Browse the shows above to learn about famous filming locations,
+        where they are in the world, and how you can visit them yourself.
+        </p>
 
+    </section>
 
-    <h3>Where can you learn more about this topic?</h3>
-    <p>
-        Find more information about the movies and shows featured on this website:
-        <a href="https://m.imdb.com/?ref_=sr_nv_home"> Learn more!</a>
-    </p>
+    <!-- MAP -->
+    <section class="map-section">
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/tZmA_VF6cm8?si=S3Hgplx0UjCG9vUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h2>Explore Filming Locations</h2>
 
+        <iframe 
+        src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F&noprof=1" 
+        width="640" 
+        height="480">
+        </iframe>
+
+    </section>
+
+    <!-- RESOURCES -->
+    <section>
+
+        <h2>Additional Resources</h2>
+
+        <p>
+        Learn more about the movies and shows featured here:
+        <a href="https://m.imdb.com/?ref_=sr_nv_home">IMDB</a>
+        </p>
+
+        <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/tZmA_VF6cm8"
+        allowfullscreen>
+        </iframe>
+
+    </section>
+
+    <script src="index.js"></script>
 
 </body>
-
-
 </html>
