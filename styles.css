@@ -285,3 +285,19 @@ img {
     margin: 0 auto;        /* Centers it */
     border-radius: 0;      /* Keeps the icon from inheriting the 10px img border */
 }
+
+.revealable {
+    --reveal-distance: 150px; /* CSS Variable */
+ 
+    scroll-margin-top: 0;
+    opacity: 0;
+    transition: 1s;
+    position: relative;
+    transform: translateY(var(--reveal-distance));
+  }
+ 
+  .active {
+    scroll-margin-top: 0;
+    transform: translateY(0);
+    opacity: 1;
+  }
