@@ -6,110 +6,260 @@
     <title>Harry Potter Filming Locations</title>
     <link href="reset.css" rel="stylesheet" type="text/css" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="script.js"></script>
     <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0e0c1a;
+            color: #e8e0d0;
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ── Hero ── */
+        .hp-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: radial-gradient(ellipse at 50% 60%, #3b1f6b 0%, #1a0d3d 50%, #0e0c1a 100%);
+            overflow: hidden;
+        }
+
+        .hp-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 50% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 35% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(200,180,255,0.6) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hp-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #b49fdd;
+            margin-bottom: 20px;
+        }
+
+        .hp-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 60px rgba(160, 100, 255, 0.5);
+        }
+
+        .hp-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #b49fdd;
+            letter-spacing: 0.5px;
+        }
+
+        .hp-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #9b6dff, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .hp-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .hp-card {
+            background: #16112b;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(155, 109, 255, 0.18);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(100, 50, 200, 0.25);
+        }
+
+        .hp-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            filter: brightness(0.92) saturate(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .hp-card:hover img {
+            filter: brightness(1) saturate(1.05);
+        }
+
+        .hp-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .hp-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #9b6dff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hp-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #e8dff8;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .hp-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #9b6dff, transparent);
+            margin: 18px auto;
+        }
+
+        .hp-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #c4b8d8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="container">
-        <h1>Harry Potter Filming Locations</h1>
-        <p>Step into the World of Magic</p>
-
-    </header>
-
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
-            
             <li class="dropdown">
-            <button class="dropbtn">Locations</button>
-            <div class="dropdown-content">
-                <a href="Star_Wars.html">Star Wars</a>
-                <a href="pride_prej.html">Pride & Prejudice</a>
-                <a href="twilight.html">Twilight</a>
-                <a href="vampire_diaries.html">The Vampire Diaries</a>
-                <a href="star_trek.html">Star Trek</a>
-                <a href="hunger_games.html">The Hunger Games</a>
-                <a href="harry_potter.html">Harry Potter</a>
-            </div>
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                </div>
             </li>
-
             <li><a href="map.html"><button>Map</button></a></li>
-
             <li><a href="connect.html"><button>Connect With Us</button></a></li>
-
-            <!-- Dark mode button -->
             <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    <main class="container">
+    <header class="hp-hero">
+        <p class="hp-hero-eyebrow">Filming Locations</p>
+        <h1>Harry Potter</h1>
+        <p class="hp-hero-sub">Step into the World of Magic</p>
+        <div class="hp-hero-divider"></div>
+    </header>
 
-        <section>
-            <h2>Christ Church, Oxford University</h2>
-            <p>
-                This dining hall was the real-life model for the Hogwarts Great 
-                Hall. Filmmakers used its architecture as the 
-                blueprint for the movies. Fans can visit the actual room located 
-                within Christ Church College that inspired the most iconic 
-                location in the series.
-            </p>
-            <img src="img/hogwarts_hall.png" width="650" height="300" alt="Hogwarts Dinning Hall">
-        </section>
+    <main class="hp-cards">
 
-        <section>
-            <h2>Hogwarts Express: Jacobite Steam Train</h2>
-            <p>
-                The iconic train journey has been made famous as the Hogwarts 
-                Express. While the Hogsmeade station is in Yorkshire, the train 
-                seen crossing the massive 21-arched bridge is the Jacobite Steam 
-                Train in the Scottish Highlands. Fans can ride this world-famous 
-                route across the Glenfinnan Viaduct and experience what is often 
-                called the greatest railway journey in the world.
-            </p>
-            <img src="img/howarts_train.png" width="600" height="300" alt="Hogwarts Express Train">
-        </section>
+        <div class="hp-card revealable">
+            <img src="img/hogwarts_hall.png" alt="Hogwarts Dining Hall">
+            <div class="hp-card-body">
+                <p class="hp-card-number">Location 01</p>
+                <h2>Christ Church, Oxford University</h2>
+                <div class="hp-card-divider"></div>
+                <p>This dining hall was the real-life model for the Hogwarts Great Hall. Filmmakers used its architecture as the blueprint for the movies. Fans can visit the actual room located within Christ Church College that inspired the most iconic location in the series.</p>
+            </div>
+        </div>
 
-        <section>
-            <h2>Hallways in Hogwarts: Lacock Village and Abbey</h2>
-            <p>
-                The iconic abbey and village have been used as the backdrop for Hogwarts and 
-                Godric’s Hollow. The abbey’s cloisters served as the school's hallways, while 
-                its historic rooms became Snape’s classroom and the home of the Mirror of 
-                Erised. Nearby, fans can find the cottage used as Harry’s parents' home.
-            </p>
-            <img src="img/hogwarts_hallway.png" width="450" height="300" alt="Swan House Atlanta">
-        </section>
+        <div class="hp-card revealable">
+            <img src="img/howarts_train.png" alt="Hogwarts Express Train">
+            <div class="hp-card-body">
+                <p class="hp-card-number">Location 02</p>
+                <h2>Hogwarts Express: Jacobite Steam Train</h2>
+                <div class="hp-card-divider"></div>
+                <p>The iconic train journey has been made famous as the Hogwarts Express. While the Hogsmeade station is in Yorkshire, the train seen crossing the massive 21-arched bridge is the Jacobite Steam Train in the Scottish Highlands. Fans can ride this world-famous route across the Glenfinnan Viaduct — often called the greatest railway journey in the world.</p>
+            </div>
+        </div>
 
-        <section>
-            <h2>Hogwarts Library and Infirmary: The Bodleian Library</h2>
-            <p>
-                The iconic library and divinity school have been used as the 
-                Hogwarts Library and Infirmary. The historic Duke Humfrey's 
-                Library served as the place where Hermione researched, while 
-                the Gothic Divinity School became the wing where students 
-                recovered from spells and potions. Fans can explore these 
-                ancient halls where the most academic and medical scenes of the 
-                films took place.
-            </p>
-            <img src="img/hogwarts_library.png" width="450" height="300" alt="Hogwarts Library">
-        </section>
+        <div class="hp-card revealable">
+            <img src="img/hogwarts_hallway.png" alt="Hogwarts Hallway">
+            <div class="hp-card-body">
+                <p class="hp-card-number">Location 03</p>
+                <h2>Hallways in Hogwarts: Lacock Village and Abbey</h2>
+                <div class="hp-card-divider"></div>
+                <p>The iconic abbey and village have been used as the backdrop for Hogwarts and Godric's Hollow. The abbey's cloisters served as the school's hallways, while its historic rooms became Snape's classroom and the home of the Mirror of Erised. Nearby, fans can find the cottage used as Harry's parents' home.</p>
+            </div>
+        </div>
 
-        <section>
-            <h2>The Gateway to Hogwarts Platform 9 ¾: King's Cross Station</h2>
-            <p>
-                The iconic station has been the starting point for every 
-                Hogwarts journey. At King’s Cross in London, fans can find the 
-                famous barrier at Platform 9 ¾, complete with a luggage trolley 
-                embedded in the wall. Right next door, the grand St Pancras 
-                Renaissance Hotel served as the visual entrance to the station 
-                where Harry and Ron famously flew their car into the sky.
-            </p>
-            <img src="img/hogwarts_train_platform.png" width="600" height="300" alt="Clayton County International Park">
-        </section>
+        <div class="hp-card revealable">
+            <img src="img/hogwarts_library.png" alt="Hogwarts Library">
+            <div class="hp-card-body">
+                <p class="hp-card-number">Location 04</p>
+                <h2>Hogwarts Library & Infirmary: The Bodleian Library</h2>
+                <div class="hp-card-divider"></div>
+                <p>The iconic library and divinity school have been used as the Hogwarts Library and Infirmary. The historic Duke Humfrey's Library served as the place where Hermione researched, while the Gothic Divinity School became the wing where students recovered from spells and potions.</p>
+            </div>
+        </div>
+
+        <div class="hp-card revealable">
+            <img src="img/hogwarts_train_platform.png" alt="King's Cross Station">
+            <div class="hp-card-body">
+                <p class="hp-card-number">Location 05</p>
+                <h2>The Gateway to Hogwarts — Platform 9¾: King's Cross Station</h2>
+                <div class="hp-card-divider"></div>
+                <p>The iconic station has been the starting point for every Hogwarts journey. At King's Cross in London, fans can find the famous barrier at Platform 9¾, complete with a luggage trolley embedded in the wall. Right next door, the grand St Pancras Renaissance Hotel served as the visual entrance where Harry and Ron famously flew their car into the sky.</p>
+            </div>
+        </div>
 
     </main>
+
+    <script src="index.js"></script>
 
 </body>
 </html>

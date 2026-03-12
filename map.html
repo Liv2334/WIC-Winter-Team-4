@@ -1,52 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Pop Culture Travel Guide</title>
+    <title>Filming Location Map — Pop Culture Travel Guide</title>
     <link rel="icon" href="img/home-button.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link href="reset.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #080810;
+            color: #e0ddf0;
+            font-family: 'Lato', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ── HERO BANNER ── */
+        .map-hero {
+            position: relative;
+            padding: 140px 40px 70px;
+            text-align: center;
+            overflow: hidden;
+            background: #080810;
+        }
+
+        .map-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(80, 30, 160, 0.3) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 40%, rgba(20, 100, 180, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(140, 40, 200, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Star field */
+        .map-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 5% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 18% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 32% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 6%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 68% 18%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 82% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 45% 48%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 78% 52%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 95% 60%, rgba(255,255,255,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .map-hero-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .map-eyebrow {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: rgba(160, 140, 255, 0.75);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .map-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(44px, 8vw, 90px);
+            font-weight: 400;
+            letter-spacing: 5px;
+            color: #fff;
+            line-height: 0.95;
+            margin-bottom: 20px;
+            text-shadow:
+                0 0 40px rgba(120, 70, 255, 0.5),
+                0 0 100px rgba(80, 30, 200, 0.3);
+        }
+
+        .map-hero h1 em {
+            font-style: normal;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.45);
+        }
+
+        .map-hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: rgba(200, 185, 255, 0.65);
+            letter-spacing: 1px;
+            max-width: 460px;
+            margin: 0 auto 40px;
+        }
+
+        .map-hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+
+        .map-hero-divider span {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(140, 100, 255, 0.5));
+        }
+
+        .map-hero-divider span:last-child {
+            background: linear-gradient(90deg, rgba(140, 100, 255, 0.5), transparent);
+        }
+
+        .map-hero-divider i {
+            font-style: normal;
+            color: rgba(160, 130, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* ── LEGEND PILLS ── */
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 780px;
+            margin: 44px auto 0;
+        }
+
+        .map-legend-pill {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(210, 200, 240, 0.7);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 20px;
+            padding: 7px 16px;
+            white-space: nowrap;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .map-legend-pill:hover {
+            background: rgba(140, 80, 255, 0.12);
+            border-color: rgba(160, 120, 255, 0.3);
+            color: rgba(220, 210, 255, 0.95);
+        }
+
+        /* ── MAP CONTAINER ── */
+        .map-wrapper {
+            max-width: 1100px;
+            margin: 56px auto 80px;
+            padding: 0 24px;
+        }
+
+        .map-frame-outer {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(140, 100, 255, 0.2);
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.04),
+                0 24px 80px rgba(0,0,0,0.7),
+                0 0 60px rgba(100, 50, 200, 0.15);
+        }
+
+        /* Glowing top edge accent */
+        .map-frame-outer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(180, 140, 255, 0.6), transparent);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Corner accents */
+        .map-corner {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .map-corner--tl { top: 0; left: 0; border-top: 2px solid rgba(160,120,255,0.6); border-left: 2px solid rgba(160,120,255,0.6); border-radius: 18px 0 0 0; }
+        .map-corner--tr { top: 0; right: 0; border-top: 2px solid rgba(160,120,255,0.6); border-right: 2px solid rgba(160,120,255,0.6); border-radius: 0 18px 0 0; }
+        .map-corner--bl { bottom: 0; left: 0; border-bottom: 2px solid rgba(160,120,255,0.6); border-left: 2px solid rgba(160,120,255,0.6); border-radius: 0 0 0 18px; }
+        .map-corner--br { bottom: 0; right: 0; border-bottom: 2px solid rgba(160,120,255,0.6); border-right: 2px solid rgba(160,120,255,0.6); border-radius: 0 0 18px 0; }
+
+        .map-frame-outer iframe {
+            display: block;
+            width: 100%;
+            height: 680px;
+            border: 0;
+            filter: saturate(0.85) brightness(0.92);
+        }
+
+        /* ── BOTTOM LABEL ── */
+        .map-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 4px;
+        }
+
+        .map-meta-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(160, 140, 255, 0.45);
+        }
+
+        .map-meta-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(140, 80, 255, 0.5);
+            animation: dotPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
-<body class="container">
+<body>
 
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
-            
             <li class="dropdown">
-            <button class="dropbtn">Locations</button>
-            <div class="dropdown-content">
-                <a href="Star_Wars.html">Star Wars</a>
-                <a href="pride_prej.html">Pride & Prejudice</a>
-                <a href="twilight.html">Twilight</a>
-                <a href="vampire_diaries.html">The Vampire Diaries</a>
-                <a href="star_trek.html">Star Trek</a>
-                <a href="hunger_games.html">The Hunger Games</a>
-                <a href="harry_potter.html">Harry Potter</a>
-            </div>
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                </div>
             </li>
-
             <li><a href="map.html"><button>Map</button></a></li>
-
             <li><a href="connect.html"><button>Connect With Us</button></a></li>
-
-            <!-- Dark mode button -->
             <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    
-    <h1>Filming Location Map</h1>
+    <header class="map-hero">
+        <div class="map-hero-inner">
+            <span class="map-eyebrow">Interactive World Map</span>
+            <h1>Filming<br><em>Locations</em></h1>
+            <p class="map-hero-sub">Every real-world location from your favorite franchises, mapped across the globe</p>
+            <div class="map-hero-divider">
+                <span></span>
+                <i>◈</i>
+                <span></span>
+            </div>
+            <div class="map-legend">
+                <span class="map-legend-pill">⭐ Star Wars</span>
+                <span class="map-legend-pill">🌹 Pride & Prejudice</span>
+                <span class="map-legend-pill">🌙 Twilight</span>
+                <span class="map-legend-pill">🧛 Vampire Diaries</span>
+                <span class="map-legend-pill">🚀 Star Trek</span>
+                <span class="map-legend-pill">🏹 Hunger Games</span>
+                <span class="map-legend-pill">🪄 Harry Potter</span>
+            </div>
+        </div>
+    </header>
 
-    <iframe
-        src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F&noprof=1"
-        width="100%"
-        height="700"
-        style="border:0;"
-        loading="lazy">
-    </iframe>
+    <div class="map-wrapper revealable">
+        <div class="map-frame-outer">
+            <div class="map-corner map-corner--tl"></div>
+            <div class="map-corner map-corner--tr"></div>
+            <div class="map-corner map-corner--bl"></div>
+            <div class="map-corner map-corner--br"></div>
+            <iframe
+                src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F&noprof=1"
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="map-meta">
+            <span class="map-meta-text">Pop Culture Travel Guide</span>
+            <div class="map-meta-dot"></div>
+            <span class="map-meta-text">7 Franchises · World</span>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+
 </body>
 </html>

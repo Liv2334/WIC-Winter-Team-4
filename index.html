@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Pop Culture Travel Guide</title>
     <link rel="icon" href="img/home-button.png">
@@ -8,97 +7,654 @@
     <meta name="viewport" content="width=device-width">
     <link href="reset.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #080810;
+            color: #e0ddf0;
+            font-family: 'Lato', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ── FROSTED GLASS NAVBAR ── */
+        .navbar ul {
+            list-style: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(8, 8, 16, 0.55);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            z-index: 3000;
+        }
+
+        .navbar ul li {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* All nav links / buttons reset to plain text style */
+        .navbar ul li a,
+        .navbar ul li button,
+        .navbar ul li .dropbtn {
+            background: none;
+            border: none;
+            color: rgba(220, 210, 255, 0.65);
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 0.2s ease, background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li button:hover,
+        .navbar ul li .dropbtn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            transform: none;
+        }
+
+        /* Home icon button */
+        .home-icon {
+            padding: 6px !important;
+            width: 36px !important;
+            height: 36px !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-icon {
+            width: 22px;
+            height: 22px;
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            opacity: 0.65;
+            transition: opacity 0.2s;
+        }
+
+        .home-icon:hover .nav-icon {
+            opacity: 1;
+        }
+
+        /* Separator dot between groups */
+        .navbar ul li.nav-sep {
+            width: 1px;
+            height: 18px;
+            background: rgba(255,255,255,0.12);
+            margin: 0 6px;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-flex;
+            z-index: 2000;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(12, 10, 28, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            min-width: 200px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 11px 18px;
+            font-family: 'Lato', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(200, 190, 240, 0.65) !important;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+        }
+
+        .dropdown-content a:last-child { border-bottom: none; }
+
+        .dropdown-content a:hover {
+            background: rgba(140, 80, 255, 0.1);
+            color: rgba(220, 210, 255, 0.95) !important;
+            padding-left: 24px;
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Theme toggle — pill style */
+        #theme-button {
+            border: 1px solid rgba(255,255,255,0.12) !important;
+            color: rgba(200, 185, 255, 0.6) !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
+            font-size: 10px !important;
+            letter-spacing: 2px !important;
+        }
+
+        #theme-button:hover {
+            border-color: rgba(160, 130, 255, 0.4) !important;
+            color: rgba(220, 210, 255, 0.9) !important;
+            background: rgba(140, 80, 255, 0.1) !important;
+        }
+
+        /* ── HERO ── */
+        .idx-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #080810;
+        }
+
+        /* Multi-color nebula */
+        .idx-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 45%, rgba(80, 20, 180, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 35%, rgba(160, 20, 60, 0.28) 0%, transparent 48%),
+                radial-gradient(ellipse at 55% 75%, rgba(20, 70, 180, 0.22) 0%, transparent 48%),
+                radial-gradient(ellipse at 50% 50%, rgba(30, 8, 70, 0.65) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        /* Star field */
+        .idx-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 7% 11%, rgba(255,255,255,0.75) 0%, transparent 100%),
+                radial-gradient(1px 1px at 19% 6%, rgba(255,255,255,0.55) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 31% 22%, rgba(255,255,255,0.65) 0%, transparent 100%),
+                radial-gradient(1px 1px at 46% 4%, rgba(255,255,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 60% 16%, rgba(255,255,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 74% 9%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 87% 20%, rgba(255,255,255,0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 94% 38%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 4% 38%, rgba(255,255,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 13% 58%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 26% 72%, rgba(255,255,255,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 40% 52%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 53% 65%, rgba(255,255,255,0.55) 0%, transparent 100%),
+                radial-gradient(1px 1px at 67% 44%, rgba(255,255,255,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 91% 74%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 17% 86%, rgba(255,255,255,0.35) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 36% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 63% 83%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 79% 93%, rgba(255,255,255,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 96% 87%, rgba(255,255,255,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .idx-hero-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .idx-eyebrow {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: rgba(180, 155, 255, 0.6);
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        /* Giant title — stacked two lines */
+        .idx-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            line-height: 0.88;
+            letter-spacing: 4px;
+            margin: 0;
+        }
+
+        .idx-title-line1 {
+            display: block;
+            font-size: clamp(72px, 16vw, 160px);
+            color: #ffffff;
+            text-shadow:
+                0 0 60px rgba(140, 70, 255, 0.55),
+                0 0 160px rgba(100, 30, 220, 0.3);
+        }
+
+        .idx-title-line2 {
+            display: block;
+            font-size: clamp(72px, 16vw, 160px);
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.38);
+            text-shadow: none;
+            letter-spacing: 6px;
+        }
+
+        .idx-title-line3 {
+            display: block;
+            font-size: clamp(32px, 6vw, 58px);
+            color: rgba(180, 155, 255, 0.55);
+            letter-spacing: 14px;
+            margin-top: 16px;
+            text-shadow: none;
+        }
+
+        /* Scroll indicator */
+        .idx-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.35;
+        }
+
+        .idx-scroll span {
+            font-family: 'Lato', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .idx-scroll-line {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7), transparent);
+            animation: scrollDrop 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDrop {
+            0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+            40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+            80%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+            100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+        }
+
+        /* ── CONTENT ── */
+        .idx-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 80px 24px 100px;
+        }
+
+        .idx-section-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(160, 130, 255, 0.7);
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .idx-section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 300;
+            color: #e8e0ff;
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 1px;
+        }
+
+        /* ── FRANCHISE GRID ── */
+        .idx-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 100px;
+        }
+
+        @media (max-width: 700px) {
+            .idx-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .idx-card {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 28px 20px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .idx-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 120%, var(--card-glow, rgba(140,80,255,0.15)) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .idx-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(180, 150, 255, 0.3);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .idx-card:hover::before { opacity: 1; }
+
+        .idx-card-emoji {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .idx-card-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #d8d0f0;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .idx-card-arrow {
+            display: block;
+            margin-top: 12px;
+            font-size: 10px;
+            color: rgba(160, 130, 255, 0.45);
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .idx-card:hover .idx-card-arrow {
+            color: rgba(200, 180, 255, 0.9);
+            transform: translateX(4px);
+        }
+
+        /* ── ABOUT ── */
+        .idx-about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 100px;
+            padding: 56px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+        }
+
+        @media (max-width: 700px) {
+            .idx-about { grid-template-columns: 1fr; padding: 32px; }
+        }
+
+        .idx-about-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #e8e0ff;
+            margin-bottom: 20px;
+        }
+
+        .idx-about-text p {
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            line-height: 1.85;
+            color: rgba(200, 190, 230, 0.75);
+            margin-bottom: 14px;
+        }
+
+        .idx-about-text p:last-child { margin-bottom: 0; }
+
+        .idx-about-stat {
+            text-align: center;
+            padding: 40px 32px;
+            background: rgba(140, 80, 255, 0.07);
+            border: 1px solid rgba(140, 80, 255, 0.15);
+            border-radius: 12px;
+        }
+
+        .idx-stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 80px;
+            color: rgba(180, 150, 255, 0.9);
+            line-height: 1;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .idx-stat-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(160, 130, 255, 0.6);
+            margin-top: 12px;
+            display: block;
+        }
+
+        /* ── RESOURCES ── */
+        .idx-resources {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 56px;
+            text-align: center;
+        }
+
+        .idx-resources p {
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            color: rgba(200, 190, 230, 0.7);
+            margin-bottom: 32px;
+        }
+
+        .idx-resources a {
+            color: rgba(180, 150, 255, 0.9);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(180, 150, 255, 0.3);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .idx-resources a:hover {
+            color: #c8b0ff;
+            border-color: #c8b0ff;
+        }
+
+        .idx-resources iframe {
+            border-radius: 12px;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
-<body class="container">
-
-
-    <header class="header-container">
-
-        <h1 class="header-item">Pop Culture Tourism</h1>
-
-        <h3 class="header-item">
-        Travel to the real filming locations of your favorite movies and TV shows
-        </h3>
-
-    </header>
+<body>
 
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
-            
+            <li class="nav-sep"></li>
             <li class="dropdown">
-            <button class="dropbtn">Locations</button>
-            <div class="dropdown-content">
-                <a href="Star_Wars.html">Star Wars</a>
-                <a href="pride_prej.html">Pride & Prejudice</a>
-                <a href="twilight.html">Twilight</a>
-                <a href="vampire_diaries.html">The Vampire Diaries</a>
-                <a href="star_trek.html">Star Trek</a>
-                <a href="hunger_games.html">The Hunger Games</a>
-                <a href="harry_potter.html">Harry Potter</a>
-            </div>
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                </div>
             </li>
-
-            <li><a href="map.html"><button>Map</button></a></li>
-
-            <li><a href="connect.html"><button>Connect With Us</button></a></li>
-
-            <!-- Dark mode button -->
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
             <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    <!-- ABOUT -->
-    <section class="about revealable">
+    <!-- HERO -->
+    <header class="idx-hero">
+        <div class="idx-hero-inner">
+            <span class="idx-eyebrow">The Ultimate Guide</span>
+            <h1 class="idx-title">
+                <span class="idx-title-line1">Pop</span>
+                <span class="idx-title-line2">Culture</span>
+                <span class="idx-title-line3">Tourism</span>
+            </h1>
+        </div>
+        <div class="idx-scroll">
+            <span>Scroll</span>
+            <div class="idx-scroll-line"></div>
+        </div>
+    </header>
 
-        <h2>About This Guide</h2>
+    <div class="idx-content">
 
-        <p>
-        Pop culture tourism allows fans to explore the real-world places where
-        their favorite movies and TV shows were filmed.
-        This guide helps you discover those locations so you can turn
-        fictional worlds into real travel destinations.
-        </p>
+        <!-- FRANCHISE GRID -->
+        <section id="explore" class="revealable">
+            <p class="idx-section-label">Browse by Franchise</p>
+            <h2 class="idx-section-title">Where do you want to travel?</h2>
+            <div class="idx-grid">
+                <a href="Star_Wars.html" class="idx-card" style="--card-glow: rgba(255,200,50,0.18)">
+                    <span class="idx-card-emoji">⭐</span>
+                    <span class="idx-card-title">Star Wars</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="pride_prej.html" class="idx-card" style="--card-glow: rgba(200,150,200,0.18)">
+                    <span class="idx-card-emoji">🌹</span>
+                    <span class="idx-card-title">Pride & Prejudice</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="twilight.html" class="idx-card" style="--card-glow: rgba(100,150,255,0.18)">
+                    <span class="idx-card-emoji">🌙</span>
+                    <span class="idx-card-title">Twilight</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="vampire_diaries.html" class="idx-card" style="--card-glow: rgba(180,20,20,0.22)">
+                    <span class="idx-card-emoji">🧛</span>
+                    <span class="idx-card-title">The Vampire Diaries</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="star_trek.html" class="idx-card" style="--card-glow: rgba(50,150,255,0.18)">
+                    <span class="idx-card-emoji">🚀</span>
+                    <span class="idx-card-title">Star Trek</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="hunger_games.html" class="idx-card" style="--card-glow: rgba(200,150,0,0.2)">
+                    <span class="idx-card-emoji">🏹</span>
+                    <span class="idx-card-title">The Hunger Games</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+                <a href="harry_potter.html" class="idx-card" style="--card-glow: rgba(140,80,255,0.22); grid-column: 2;">
+                    <span class="idx-card-emoji">🪄</span>
+                    <span class="idx-card-title">Harry Potter</span>
+                    <span class="idx-card-arrow">Explore →</span>
+                </a>
+            </div>
+        </section>
 
-        <p>
-        Browse the shows above to learn about famous filming locations,
-        where they are in the world, and how you can visit them yourself.
-        </p>
+        <!-- ABOUT -->
+        <section class="idx-about revealable">
+            <div class="idx-about-text">
+                <h2>About This Guide</h2>
+                <p>
+                    Pop culture tourism allows fans to explore the real-world places where
+                    their favorite movies and TV shows were filmed. This guide helps you
+                    discover those locations so you can turn fictional worlds into real
+                    travel destinations.
+                </p>
+                <p>
+                    Browse the franchises to learn about filming locations, where they
+                    are in the world, and how to visit them yourself.
+                </p>
+            </div>
+            <div class="idx-about-stat">
+                <span class="idx-stat-number">7</span>
+                <span class="idx-stat-label">Franchises<br>Covered</span>
+            </div>
+        </section>
 
-    </section>
+        <!-- RESOURCES -->
+        <section class="idx-resources revealable">
+            <p class="idx-section-label">Additional Resources</p>
+            <h2 class="idx-section-title" style="margin-bottom: 20px;">Learn More</h2>
+            <p>Dive deeper into cast, crew, and production details at <a href="https://m.imdb.com/?ref_=sr_nv_home">IMDb</a></p>
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/tZmA_VF6cm8"
+                allowfullscreen>
+            </iframe>
+        </section>
 
-    <!-- MAP -->
-    <section class="map-section">
-
-        <h2>Explore Filming Locations</h2>
-
-        <iframe 
-        src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F&noprof=1" 
-        width="640" 
-        height="480">
-        </iframe>
-
-    </section>
-
-    <!-- RESOURCES -->
-    <section>
-
-        <h2>Additional Resources</h2>
-
-        <p>
-        Learn more about the movies and shows featured here:
-        <a href="https://m.imdb.com/?ref_=sr_nv_home">IMDB</a>
-        </p>
-
-        <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/tZmA_VF6cm8"
-        allowfullscreen>
-        </iframe>
-
-    </section>
+    </div>
 
     <script src="index.js"></script>
 
