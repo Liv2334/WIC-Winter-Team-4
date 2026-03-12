@@ -170,15 +170,6 @@ button:hover {
     text-decoration: underline;
 }
 
-.home-button {
-    /* Example Style, replace with your own! */
-    background-color: rgb(94, 77, 130);    /* button color */
-    color: rgb(218, 219, 236);               /* text color */
-    border: none;               /* hides the default border */
-    padding: 12px 12px;          /* space between button's text and edge */
-    border-radius: 5px;         /* curved edges instead of square */
-    cursor: pointer;            /* makes the cursor change when over button */
-}
 
 
 
