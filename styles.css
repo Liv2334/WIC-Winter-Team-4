@@ -267,3 +267,21 @@ img {
 .container {
   text-align: center;
 }
+
+
+.home-icon {
+    width: 44px;           /* Forces a specific width */
+    height: 44px;          /* Matches width to make it a square */
+    padding: 0;            /* Removes the 12px side padding from your original CSS */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon {
+    width: 30px;           /* Size of the icon inside the square */
+    height: 30px;
+    display: block;        /* Removes bottom whitespace */
+    margin: 0 auto;        /* Centers it */
+    border-radius: 0;      /* Keeps the icon from inheriting the 10px img border */
+}
