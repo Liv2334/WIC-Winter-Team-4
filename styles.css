@@ -143,30 +143,120 @@ button:hover {
   - Add style rules for your website's navbar
 ***/
 
+/* ── FROSTED GLASS NAVBAR ── */
 .navbar ul {
-    list-style-type: none;
+    list-style: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--accent-color-darkest);
-    padding: 20px 0;
-    z-index: 3000;
-    text-align: center;
     margin: 0;
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(8, 8, 16, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    z-index: 3000;
 }
 
 .navbar ul li {
-    display: inline-block;   /* puts buttons in a row */
-    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
 }
 
-.navbar ul li a {
+.navbar ul li a,
+.navbar ul li button,
+.navbar ul li .dropbtn {
+    background: none;
+    border: none;
+    color: rgba(220, 210, 255, 0.65);
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
+.navbar ul li a:hover,
+.navbar ul li button:hover,
+.navbar ul li .dropbtn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.home-icon {
+    background: rgba(220, 210, 255, 0.65)!important;
+    padding: 6px !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin: 0;
+}
+
+.navbar ul li.nav-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,0.12);
+    margin: 0 6px;
+}
+
+.dropdown { position: relative; display: inline-flex; z-index: 2000; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(12, 10, 28, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    min-width: 200px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 11px 18px;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(200, 190, 240, 0.65) !important;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+
+#theme-button {
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    color: rgba(200, 185, 255, 0.6) !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
 }
 
 .dropdown {
@@ -311,20 +401,22 @@ img {
 
 
 .home-icon {
-    width: 44px;           /* Forces a specific width */
-    height: 44px;          /* Matches width to make it a square */
-    padding: 0;            /* Removes the 12px side padding from your original CSS */
-    display: inline-flex;
+    width: 44px !important;    /* Force square width */
+    height: 44px !important;   /* Force square height */
+    padding: 0 !important;      /* Kill the 12px padding from the button rule */
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.556) !important; /* Your light grey background */
 }
 
 .nav-icon {
-    width: 30px;           /* Size of the icon inside the square */
-    height: 30px;
-    display: block;        /* Removes bottom whitespace */
-    margin: 0 auto;        /* Centers it */
-    border-radius: 0;      /* Keeps the icon from inheriting the 10px img border */
+    width: 30px !important;
+    height: 30px !important;
+    margin: 0 !important;      /* Kill the 20px margin from the img rule */
+    display: block;
+    border-radius: 0;
+    opacity: 1;                /* Fixed the syntax from opacity=1 */
 }
 
 .revealable {
@@ -342,3 +434,77 @@ img {
     transform: translateY(0);
     opacity: 1;
   }
+
+/* ── LIGHT MODE OVERRIDES ── */
+body.light-mode {
+    background-color: #ede1f6; /* Light grey/white background */
+    color: #1a1a2e;            /* Dark text */
+}
+
+/* Update the Hero section for light mode */
+.light-mode .idx-hero {
+    background: #ede1f6;
+}
+
+.light-mode .idx-hero::before {
+    /* Brighter, lighter nebula gradients */
+    background: 
+        radial-gradient(ellipse at 15% 45%, rgba(140, 80, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 35%, rgba(255, 100, 150, 0.1) 0%, transparent 48%);
+}
+
+.light-mode .idx-title-line1 {
+    color: #231942;
+    text-shadow: 0 0 30px rgba(140, 80, 255, 0.2);
+}
+
+.light-mode .idx-title-line2 {
+    -webkit-text-stroke: 1.5px rgba(11, 8, 20, 0.5);
+}
+
+/* Make the Navbar visible on light backgrounds */
+.light-mode .navbar ul {
+    background: #ead8fcb3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .navbar ul li a, 
+.light-mode .navbar ul li .dropbtn {
+    color: #231942;
+}
+
+/* Adjust the cards so they pop on white */
+.light-mode .idx-card {
+    background: rgb(229, 214, 243);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.light-mode .idx-card-title {
+    color: #231942;
+}
+
+.light-mode .idx-about-text h2{
+    color: #231942;
+}
+
+.light-mode .idx-about-text p{
+    color: #5c4d8c;
+}
+
+body.light-mode #theme-button {
+    color: #080810 !important;             /* A very dark navy/black */
+    border-color: rgba(0, 0, 0, 0.2) !important; /* Darker border to match */
+    background: rgba(0, 0, 0, 0.05) !important;  /* Subtle dark tint to the button background */
+}
+
+/* Optional: Make it even darker when you hover over it in light mode */
+body.light-mode #theme-button:hover {
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+
+
+

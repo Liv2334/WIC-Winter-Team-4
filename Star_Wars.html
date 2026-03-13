@@ -1,27 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Star Wars Film Locations</title>
-   	    <link href="reset.css" rel="stylesheet" type="text/css" />
-        <link href="styles.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="script.js"></script>
-        <link rel="icon" href="img/home-button.png">
-        
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #100c06;
+            color: #f0e0c8;
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
 
-    <body>
-        <header class="header-container">
-            <h1>Star Wars Film Locations</h1>
-            <p1>Check Out These Locations if You're a Star Wars Fan!</p>
-        </header>
+        /* ── HERO ── */
+        .sw-hero {
+            position: relative;
+            width: 100%;
+            min-height: 440px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: radial-gradient(ellipse at 50% 65%, #3d2000 0%, #1e1000 45%, #100c06 100%);
+            overflow: hidden;
+        }
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
-                
-                <li class="dropdown">
+        /* Atmosphere glow */
+        .sw-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(200, 100, 20, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 75%, rgba(220, 120, 10, 0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 100%, rgba(240, 140, 30, 0.1) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        /* Stars — warm tinted */
+        .sw-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 8% 12%, rgba(255,230,180,0.75) 0%, transparent 100%),
+                radial-gradient(1px 1px at 22% 6%, rgba(255,230,180,0.55) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 38% 20%, rgba(255,230,180,0.65) 0%, transparent 100%),
+                radial-gradient(1px 1px at 54% 9%, rgba(255,230,180,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 70% 18%, rgba(255,230,180,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 84% 10%, rgba(255,230,180,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 94% 26%, rgba(255,230,180,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 5% 44%, rgba(255,230,180,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 58%, rgba(255,230,180,0.3) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 55% 50%, rgba(255,230,180,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 78% 55%, rgba(255,230,180,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 16% 78%, rgba(255,220,160,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 82%, rgba(255,220,160,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 90% 70%, rgba(255,220,160,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .sw-hero-eyebrow {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #e8a85a;
+            margin-bottom: 20px;
+        }
+
+        .sw-hero h1 {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow:
+                0 0 60px rgba(220, 130, 30, 0.55),
+                0 0 120px rgba(200, 100, 10, 0.28);
+        }
+
+        .sw-hero-sub {
+            position: relative;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #e8a85a;
+            letter-spacing: 0.5px;
+        }
+
+        .sw-hero-divider {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 28px auto 0;
+        }
+
+        .sw-hero-divider span {
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c87830);
+        }
+
+        .sw-hero-divider span:last-child {
+            background: linear-gradient(90deg, #c87830, transparent);
+        }
+
+        .sw-hero-divider i {
+            font-style: normal;
+            color: #d89050;
+            font-size: 14px;
+        }
+
+        /* ── CARDS ── */
+        .sw-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .sw-card {
+            background: #160e04;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(200, 120, 40, 0.18);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.55);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sw-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(180, 100, 20, 0.22);
+        }
+
+        .sw-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            filter: brightness(0.88) saturate(0.82) sepia(0.1);
+            transition: filter 0.3s ease;
+        }
+
+        .sw-card:hover img {
+            filter: brightness(0.98) saturate(0.95) sepia(0);
+        }
+
+        .sw-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .sw-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #e8a85a;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sw-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #faebd8;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .sw-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #c87830, transparent);
+            margin: 18px auto;
+        }
+
+        .sw-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #c8a880;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
                 <button class="dropbtn">Locations</button>
                 <div class="dropdown-content">
                     <a href="Star_Wars.html">Star Wars</a>
@@ -32,45 +234,80 @@
                     <a href="hunger_games.html">The Hunger Games</a>
                     <a href="harry_potter.html">Harry Potter</a>
                 </div>
-                </li>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
 
-                <li><a href="map.html"><button>Map</button></a></li>
+    <header class="sw-hero">
+        <p class="sw-hero-eyebrow">Filming Locations</p>
+        <h1>Star Wars</h1>
+        <p class="sw-hero-sub">Check Out These Locations if You're a Star Wars Fan</p>
+        <div class="sw-hero-divider">
+            <span></span>
+            <i>✦</i>
+            <span></span>
+        </div>
+    </header>
 
-                <li><a href="connect.html"><button>Connect With Us</button></a></li>
+    <main class="sw-cards">
 
-                <!-- Dark mode button -->
-                <li><button id="theme-button">Toggle Theme</button></li>
-            </ul>
-        </nav>
+        <div class="sw-card revealable">
+            <img src="https://i.guim.co.uk/img/media/a41a691c7901cec4672e5de86617455ab736105e/0_305_4928_2957/master/4928.jpg?width=1200&quality=85&auto=format&fit=max&s=d2d5eb223c04a9d24e884883d41cac25" alt="Tatooine Tunisia">
+            <div class="sw-card-body">
+                <p class="sw-card-number">Location 01</p>
+                <h2>Tatooine: Tunisia & Death Valley, CA</h2>
+                <div class="sw-card-divider"></div>
+                <p>Visit Tunisia or Death Valley in California to see where the planet of Tatooine was brought to life. The harsh desert landscapes of both locations perfectly captured the alien, sun-scorched world of Luke Skywalker's home planet.</p>
+            </div>
+        </div>
 
-        <body class="container">
-            <h2>Tatooine: Tunisia & Death Valley, CA, USA</h2>
-            <p2>Visit Tunisia or Death Valley in California, USA to see where the planet of Tatooine was imagined</p>
-            <img src="https://i.guim.co.uk/img/media/a41a691c7901cec4672e5de86617455ab736105e/0_305_4928_2957/master/4928.jpg?width=1200&quality=85&auto=format&fit=max&s=d2d5eb223c04a9d24e884883d41cac25"width=400px height="300px">
-            <img src="https://pbs.twimg.com/media/D5wPDprUEAAS4kX.png"width=400px height="300px">
-            <h1>Endor: Redwood National Parks in California, USA</h1>
-            <p1>For the filming of Star Wars:The Last Jedi (1983),multiple redwood national parks located in California, USA were used.
-                Locations included:   
-            </p1>
-            <p1>- Grizzly Creek Redwood State Park in Carlotta, California</p1>
-            <p1> - Redwood and National State Parks in Crescent City, California</p1>
-            <p1> - Jedediah Smith Redwoods State Park in Crescent City, California</p1>
-            <p1> - Humboldt Redwoods State Park in Humboldt County, California</p1>
-            <img src="https://fox5sandiego.com/wp-content/uploads/sites/15/2022/07/redwoodsgrizzly.jpg"width=400px height="300px">
-            <h1>Kashyyyk: Phang Nga Bay, Phuket, Thailand</h1>
-            <p1>Visit Chewbacca's home planet in Thailand!</p1>
-            <img src="https://assets.vogue.com/photos/5891381bf88f7c203736487d/master/w_1600%2Cc_limit/03-phang-nga-bay.jpg"width=400px height="300px">
-            <h1>Ahch-To: Skellig Michael, Ireland</h1>
-            <p1>Not only is this a UNESCO heritage site, it is the island where Rey trained Luke Skywalker in Star Wars: Force Awakens</p1>
-            <img src="https://www.kevinandamanda.com/wp-content/uploads/2017/09/skellig-michael-star-wars-force-awakens-luke-island-02.jpg" width="400px" height="300px">
-            <h1>Theed Royal Palace on Naboo: Palace of Caserta, Italy</h1>
-            <p1>Visit the Palace of Caserta for its culture and walk in the same stariway as your favorite Star Wars!</p1>
-            <img src="https://preview.redd.it/the-royal-palace-of-caserta-theed-palace-v0-zch948xqgfa31.jpg?width=640&crop=smart&auto=webp&s=f1271ce7669b77ff595efbd306b9804d2cc0ed26" width="400px" height="300px">
-            
-        </body>
+        <div class="sw-card revealable">
+            <img src="https://fox5sandiego.com/wp-content/uploads/sites/15/2022/07/redwoodsgrizzly.jpg" alt="Endor Redwoods">
+            <div class="sw-card-body">
+                <p class="sw-card-number">Location 02</p>
+                <h2>Endor: Redwood National Parks, CA</h2>
+                <div class="sw-card-divider"></div>
+                <p>For the filming of Return of the Jedi, multiple redwood national parks in California were used — including Grizzly Creek Redwood State Park, Redwood National and State Parks in Crescent City, Jedediah Smith Redwoods State Park, and Humboldt Redwoods State Park.</p>
+            </div>
+        </div>
 
-        
-        
-    </body>
-   
+        <div class="sw-card revealable">
+            <img src="https://assets.vogue.com/photos/5891381bf88f7c203736487d/master/w_1600%2Cc_limit/03-phang-nga-bay.jpg" alt="Kashyyyk Thailand">
+            <div class="sw-card-body">
+                <p class="sw-card-number">Location 03</p>
+                <h2>Kashyyyk: Phang Nga Bay, Phuket, Thailand</h2>
+                <div class="sw-card-divider"></div>
+                <p>Visit Chewbacca's home planet in Thailand! The dramatic limestone karsts and lush tropical waters of Phang Nga Bay stood in for the Wookiee homeworld, creating one of the saga's most visually striking alien landscapes.</p>
+            </div>
+        </div>
+
+        <div class="sw-card revealable">
+            <img src="https://www.kevinandamanda.com/wp-content/uploads/2017/09/skellig-michael-star-wars-force-awakens-luke-island-02.jpg" alt="Ahch-To Ireland">
+            <div class="sw-card-body">
+                <p class="sw-card-number">Location 04</p>
+                <h2>Ahch-To: Skellig Michael, Ireland</h2>
+                <div class="sw-card-divider"></div>
+                <p>Not only is this a UNESCO World Heritage Site, it is the island where Rey trained with Luke Skywalker in The Force Awakens. The remote, ancient stone steps and dramatic cliffs of Skellig Michael made it feel truly out of this world.</p>
+            </div>
+        </div>
+
+        <div class="sw-card revealable">
+            <img src="https://preview.redd.it/the-royal-palace-of-caserta-theed-palace-v0-zch948xqgfa31.jpg?width=640&crop=smart&auto=webp&s=f1271ce7669b77ff595efbd306b9804d2cc0ed26" alt="Palace of Caserta">
+            <div class="sw-card-body">
+                <p class="sw-card-number">Location 05</p>
+                <h2>Theed Royal Palace on Naboo: Palace of Caserta, Italy</h2>
+                <div class="sw-card-divider"></div>
+                <p>Visit the Palace of Caserta for its incredible culture and walk the same grand stairways seen in the Star Wars prequels. This magnificent baroque palace served as Queen Amidala's Theed Royal Palace on the planet Naboo.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
 </html>

@@ -4,20 +4,22 @@
 ***/
 
 
-// Step 1: Select the theme button
-const themeButton = document.getElementById("theme-button");
+// 1. Find the button and the body
+const themeButton = document.getElementById('theme-button');
+const bodyElement = document.body;
 
-// Step 2: Write the callback function
-const toggleDarkMode = () => {
-    // Write your code here
-    // This section will run whenever the button is clicked
-    document.body.classList.toggle("dark-mode");
-}
-
-
-// Step 3: Register a 'click' event listener for the theme button,
-//             and tell it to use toggleDarkMode as its callback function
-themeButton.addEventListener("click", toggleDarkMode);
+// 2. Add an "Event Listener" (wait for a click)
+themeButton.addEventListener('click', () => {
+    // 3. Toggle the 'light-mode' class
+    bodyElement.classList.toggle('light-mode');
+    
+    // 4. Optional: Change the button text
+    if (bodyElement.classList.contains('light-mode')) {
+        themeButton.textContent = "Toggle Theme";
+    } else {
+        themeButton.textContent = "Toggle Theme";
+    }
+});
 
 
 

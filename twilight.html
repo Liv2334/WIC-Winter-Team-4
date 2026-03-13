@@ -3,125 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twilight Film Locations</title>
+    <title>Twilight Filming Locations</title>
     <link href="reset.css" rel="stylesheet" type="text/css" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="script.js"></script>
     <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #080e1a;
+            color: #d8e8f0;
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        
+        /* ── HERO ── */
+        .tw-hero {
+            position: relative;
+            width: 100%;
+            min-height: 440px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: radial-gradient(ellipse at 50% 65%, #0d2a40 0%, #071828 45%, #080e1a 100%);
+            overflow: hidden;
+        }
+
+        .tw-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(60, 140, 200, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 75%, rgba(40, 110, 180, 0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 100%, rgba(80, 160, 220, 0.1) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .tw-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 12% 18%, rgba(200,230,255,0.7) 0%, transparent 100%),
+                radial-gradient(1px 1px at 28% 8%, rgba(200,230,255,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 45% 22%, rgba(200,230,255,0.65) 0%, transparent 100%),
+                radial-gradient(1px 1px at 62% 12%, rgba(200,230,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 78% 25%, rgba(200,230,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 16%, rgba(200,230,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 6% 42%, rgba(200,230,255,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 33% 55%, rgba(200,230,255,0.3) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 58% 48%, rgba(200,230,255,0.45) 0%, transparent 100%),
+                radial-gradient(1px 1px at 85% 52%, rgba(200,230,255,0.35) 0%, transparent 100%),
+                radial-gradient(1px 1px at 20% 72%, rgba(200,230,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 70% 78%, rgba(200,230,255,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 92% 68%, rgba(180,215,240,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .tw-hero-eyebrow {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #a8d4ee;
+            margin-bottom: 20px;
+        }
+
+        .tw-hero h1 {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow:
+                0 0 60px rgba(100, 180, 240, 0.55),
+                0 0 120px rgba(60, 140, 210, 0.28);
+        }
+
+        .tw-hero-sub {
+            position: relative;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #a8d4ee;
+            letter-spacing: 0.5px;
+        }
+
+        .tw-hero-divider {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 28px auto 0;
+        }
+
+        .tw-hero-divider span {
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #6ab4d8);
+        }
+
+        .tw-hero-divider span:last-child {
+            background: linear-gradient(90deg, #6ab4d8, transparent);
+        }
+
+        .tw-hero-divider i {
+            font-style: normal;
+            color: #8acce8;
+            font-size: 14px;
+        }
+
+        /* ── CARDS ── */
+        .tw-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .tw-card {
+            background: #0a1628;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(100, 180, 230, 0.15);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.55);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tw-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(60, 140, 210, 0.2);
+        }
+
+        .tw-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            filter: brightness(0.88) saturate(0.78) hue-rotate(5deg);
+            transition: filter 0.3s ease;
+        }
+
+        .tw-card:hover img {
+            filter: brightness(0.98) saturate(0.92);
+        }
+
+        .tw-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .tw-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #a8d4ee;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tw-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #ddf0fa;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .tw-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #6ab4d8, transparent);
+            margin: 18px auto;
+        }
+
+        .tw-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #9bbcce;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="header-container">
-        <h1>Twilight Film Locations</h1>
-        <p>Check Out These Iconic Twilight Locations!</p>
-    </header>
-
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
-            
+            <li class="nav-sep"></li>
             <li class="dropdown">
-            <button class="dropbtn">Locations</button>
-            <div class="dropdown-content">
-                <a href="Star_Wars.html">Star Wars</a>
-                <a href="pride_prej.html">Pride & Prejudice</a>
-                <a href="twilight.html">Twilight</a>
-                <a href="vampire_diaries.html">The Vampire Diaries</a>
-                <a href="star_trek.html">Star Trek</a>
-                <a href="hunger_games.html">The Hunger Games</a>
-                <a href="harry_potter.html">Harry Potter</a>
-            </div>
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                </div>
             </li>
-
-            <li><a href="map.html"><button>Map</button></a></li>
-
-            <li><a href="connect.html"><button>Connect With Us</button></a></li>
-
-            <!-- Dark mode button -->
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
             <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
 
-    <main class="container">
+    <header class="tw-hero">
+        <p class="tw-hero-eyebrow">Filming Locations</p>
+        <h1>Twilight</h1>
+        <p class="tw-hero-sub">Check Out These Iconic Twilight Locations</p>
+        <div class="tw-hero-divider">
+            <span></span>
+            <i>✦</i>
+            <span></span>
+        </div>
+    </header>
 
-        <section class="revealable">
-            <h2>Bella Swan's House: St. Helens, OR</h2>
-            <p>
-                Visit Bella's House at 184 S 6th St, St. Helens, OR! This 1930s
-                home became instantly iconic after Twilight. It has even been
-                renovated to match the movie interior and is sometimes available
-                to rent as a themed stay.
-            </p>
-            <img src="img/bella-house.jpg" width="400" height="300" alt="Bella Swan House">
-        </section>
+    <main class="tw-cards">
 
-        <section class="revealable">
-            <h2>Forks High School: Kalama, WA</h2>
-            <p>
-                The exterior shots of Forks High School were filmed at Kalama High School
-                in Kalama, Washington. This is where Bella first sees Edward in biology
-                class and where many unforgettable scenes take place.
-            </p>
-            <img src="img/forks-high.jpg" width="400" height="200" alt="Forks High School">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/bella-house.jpg" alt="Bella Swan House">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 01</p>
+                <h2>Bella Swan's House: St. Helens, OR</h2>
+                <div class="tw-card-divider"></div>
+                <p>Visit Bella's House at 184 S 6th St, St. Helens, OR! This 1930s home became instantly iconic after Twilight. It has even been renovated to match the movie interior and is sometimes available to rent as a themed stay.</p>
+            </div>
+        </div>
 
-        <section class="revealable">
-            <h2>Cullen House: Portland, OR</h2>
-            <p>
-                The Cullen family's modern glass home is located in Portland, Oregon.
-                Known as the Hoke House, this stunning contemporary home perfectly
-                matched the vampire aesthetic with its floor-to-ceiling windows
-                and forest surroundings.
-            </p>
-            <img src="img/cullen-house.jpg" width="400" height="300" alt="Cullen House">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/forks-high.jpg" alt="Forks High School">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 02</p>
+                <h2>Forks High School: Kalama, WA</h2>
+                <div class="tw-card-divider"></div>
+                <p>The exterior shots of Forks High School were filmed at Kalama High School in Kalama, Washington. This is where Bella first sees Edward in biology class and where many unforgettable scenes take place.</p>
+            </div>
+        </div>
 
-        <section class="revealable">
-            <h2>La Push Beach: Cannon Beach, OR</h2>
-            <p>
-                While the story takes place in La Push, many beach scenes featuring
-                Jacob and the Quileute tribe were filmed at Cannon Beach.
-                The dramatic Pacific Northwest coastline adds to the moody atmosphere
-                of the saga.
-            </p>
-            <img src="img/la-push.jpg" width="400" height="300" alt="La Push Beach">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/cullen-house.jpg" alt="Cullen House">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 03</p>
+                <h2>Cullen House: Portland, OR</h2>
+                <div class="tw-card-divider"></div>
+                <p>The Cullen family's modern glass home is located in Portland, Oregon. Known as the Hoke House, this stunning contemporary home perfectly matched the vampire aesthetic with its floor-to-ceiling windows and forest surroundings.</p>
+            </div>
+        </div>
 
-        <section class="revealable">
-            <h2>Baseball Scene: Columbia River Gorge, OR</h2>
-            <p>
-                The iconic vampire baseball scene was filmed in a private field
-                near the Columbia River Gorge. Surrounded by lush greenery and
-                dramatic skies, it became one of the most memorable moments
-                in the entire series.
-            </p>
-            <img src="img/baseball-scene.jpg" width="400" height="200" alt="Baseball Scene Location">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/la-push.jpg" alt="La Push Beach">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 04</p>
+                <h2>La Push Beach: Cannon Beach, OR</h2>
+                <div class="tw-card-divider"></div>
+                <p>While the story takes place in La Push, many beach scenes featuring Jacob and the Quileute tribe were filmed at Cannon Beach. The dramatic Pacific Northwest coastline adds to the moody atmosphere of the saga.</p>
+            </div>
+        </div>
 
-        <section class="revealable">
-            <h2>Bella & Charlie’s Diner: Damascus, OR</h2>
-            <p>
-                The cozy diner where Bella and Charlie eat together was filmed at
-                Carver Café in Damascus, Oregon. This real-life café became iconic
-                for its small-town vibe and is a must-visit for fans wanting to sit
-                where Bella ordered her infamous veggie burger.
-            </p>
-            <img src="img/carver-cafe.jpg" width="400" height="300" alt="Carver Cafe Twilight">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/baseball-scene.jpg" alt="Baseball Scene Location">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 05</p>
+                <h2>Baseball Scene: Columbia River Gorge, OR</h2>
+                <div class="tw-card-divider"></div>
+                <p>The iconic vampire baseball scene was filmed in a private field near the Columbia River Gorge. Surrounded by lush greenery and dramatic skies, it became one of the most memorable moments in the entire series.</p>
+            </div>
+        </div>
 
-        <section class="revealable">
-            <h2>Volterra Scenes: Montepulciano, Italy</h2>
-            <p>
-                Although the Volturi rule from Volterra in the books, the New Moon
-                scenes were actually filmed in Montepulciano, Italy. The historic
-                piazza and clock tower are where Bella races to stop Edward.
-            </p>
-            <img src="img/volterra.jpg" width="400" height="300" alt="Montepulciano Italy">
-        </section>
+        <div class="tw-card revealable">
+            <img src="img/carver-cafe.jpg" alt="Carver Cafe Twilight">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 06</p>
+                <h2>Bella & Charlie's Diner: Damascus, OR</h2>
+                <div class="tw-card-divider"></div>
+                <p>The cozy diner where Bella and Charlie eat together was filmed at Carver Café in Damascus, Oregon. This real-life café became iconic for its small-town vibe and is a must-visit for fans wanting to sit where Bella ordered her infamous veggie burger.</p>
+            </div>
+        </div>
+
+        <div class="tw-card revealable">
+            <img src="img/volterra.jpg" alt="Montepulciano Italy">
+            <div class="tw-card-body">
+                <p class="tw-card-number">Location 07</p>
+                <h2>Volterra Scenes: Montepulciano, Italy</h2>
+                <div class="tw-card-divider"></div>
+                <p>Although the Volturi rule from Volterra in the books, the New Moon scenes were actually filmed in Montepulciano, Italy. The historic piazza and clock tower are where Bella races to stop Edward.</p>
+            </div>
+        </div>
 
     </main>
-<script src="index.js"></script>
+
+    <script src="index.js"></script>
 
 </body>
 </html>
