@@ -3,23 +3,40 @@
   - Use this starter code to add a dark mode feature to your website.
 ***/
 
+/*** Theme Toggle & Memory ***/
 
-// 1. Find the button and the body
 const themeButton = document.getElementById('theme-button');
 const bodyElement = document.body;
 
-// 2. Add an "Event Listener" (wait for a click)
-themeButton.addEventListener('click', () => {
-    // 3. Toggle the 'light-mode' class
-    bodyElement.classList.toggle('light-mode');
-    
-    // 4. Optional: Change the button text
-    if (bodyElement.classList.contains('light-mode')) {
-        themeButton.textContent = "Toggle Theme";
-    } else {
-        themeButton.textContent = "Toggle Theme";
-    }
-});
+// 1. On page load, check the browser's memory (localStorage) for a saved theme
+const savedTheme = localStorage.getItem('site-theme');
+
+// 2. If the saved theme is 'light', apply it immediately
+if (savedTheme === 'light') {
+    bodyElement.classList.add('light-mode');
+    if (themeButton) themeButton.textContent = "Dark Mode";
+} else {
+    // Default state
+    if (themeButton) themeButton.textContent = "Light Mode";
+}
+
+// 3. Add the click event listener (with a safety check in case the button is missing!)
+if (themeButton) {
+    themeButton.addEventListener('click', () => {
+        
+        // Toggle the class on the body
+        bodyElement.classList.toggle('light-mode');
+        
+        // 4. Update memory and button text based on the new state
+        if (bodyElement.classList.contains('light-mode')) {
+            localStorage.setItem('site-theme', 'light');
+            themeButton.textContent = "Dark Mode";
+        } else {
+            localStorage.setItem('site-theme', 'dark');
+            themeButton.textContent = "Light Mode";
+        }
+    });
+}
 
 /*** Scroll Animations ***
   Purpose:
