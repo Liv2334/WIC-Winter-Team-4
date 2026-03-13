@@ -9,12 +9,6 @@ The Pop Culture Travel Tourism is an immersive, interactive web application desi
 The primary goal is to provide a centralized, visually appealing resource that simplifies the discovery of filming locations. Instead of hunting through fan wikis and travel blogs, users can find curated, verified location data for major franchises in a single, cohesive experience.
 
 ### Key Features
-Gemini said
-You're right—that map.html file is a crucial part of the project's technical "problem-solving" aspect. It moves the project from a simple collection of pages to a functional tool.
-
-Since you've built a custom-styled, interactive map with legend filters and a dedicated UI, here is how you should update those sections of the project overview to reflect it:
-
-Key Features (Updated)
 Interactive Global Mapping: A dedicated geospatial interface (map.html) that aggregates filming locations from all seven franchises onto a single world map.
 
 Integrated Legend System: Custom-styled legend pills that allow users to identify locations by franchise (e.g., distinguishing Star Wars desert outposts from Harry Potter castles) at a glance.
@@ -23,7 +17,8 @@ Cinematic Map UI: A custom "Frame" design featuring neon corner accents and a pu
 
 Franchise-Specific Portals: Deep-dive pages for various cinematic universes, each featuring unique visual themes.
 
-Problem Solved (Updated)
+Problem Solved
+
 Geospatial Visualization: Many fans don't realize how close certain filming locations are to one another (e.g., several franchises filming in the UK or North Carolina). The map solves this by providing a geographic context that list-based guides cannot.
 
 Fragmented Planning: Instead of jumping between multiple tabs to plan a trip, the map provides a unified view of all 7 franchises, allowing for multi-fandom travel itineraries.
