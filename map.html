@@ -417,6 +417,33 @@
         </div>
     </div>
 
+    <script>
+        /*** Dynamic Google My Map Loader ***/
+        
+        // 1. Put your unique Google My Maps ID here
+        const myMapId = '1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F'; 
+        
+        // 2. Look at the current URL and grab the parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const lat = urlParams.get('lat');
+        const lng = urlParams.get('lng');
+        const zoom = urlParams.get('z') || '16'; 
+        
+        // 3. Find the map iframe on the page
+        const mapIframe = document.querySelector('.map-frame-outer iframe');
+        
+        if (mapIframe) {
+            if (lat && lng) {
+                // If coordinates exist, load the My Map and center it on those coordinates
+                // Notice we use 'll=' for My Maps instead of the standard Maps format
+                mapIframe.src = `https://www.google.com/maps/d/embed?mid=${myMapId}&ll=${lat},${lng}&z=${zoom}`;
+            } else {
+                // Fallback: If someone just clicks the "Map" nav link (no coordinates),
+                // just load the default zoomed-out view of your custom map
+                mapIframe.src = `https://www.google.com/maps/d/embed?mid=${myMapId}`;
+            }
+        }
+    </script>
     <script src="index.js"></script>
 
 </body>
