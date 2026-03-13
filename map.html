@@ -22,7 +22,7 @@
         /* ── HERO BANNER ── */
         .map-hero {
             position: relative;
-            padding: 140px 40px 70px;
+            padding: 140px 0px 70px;
             text-align: center;
             overflow: hidden;
             background: #080810;
@@ -256,6 +256,98 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── LIGHT MODE OVERRIDES ── */
+
+        /* 1. Page Foundation */
+        body.light-mode {
+            background-color: #f8f9fc; /* Clean, paper-white with a hint of blue */
+            color: #1a1a2e;            /* High-contrast ink navy */
+        }
+
+        /* 2. Hero Section */
+        .light-mode .map-hero {
+            /* Subtle blue sky gradient */
+            background: radial-gradient(ellipse at 50% 50%, #e0e7ff 0%, #f1f4ff 45%, #f8f9fc 100%);
+        }
+
+        .light-mode .map-hero::before {
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+        }
+
+        /* Star field is hidden in the daytime "Atlas" view */
+        .light-mode .map-hero::after {
+            display: none;
+        }
+
+        .light-mode .map-hero h1 {
+            color: #1e1b4b;
+            text-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .light-mode .map-hero h1 em {
+            -webkit-text-stroke: 1px rgba(30, 27, 75, 0.3);
+        }
+
+        .light-mode .map-eyebrow {
+            color: #4f46e5; /* Vibrant indigo */
+        }
+
+        .light-mode .map-hero-sub {
+            color: #475569; /* Slate gray */
+        }
+
+        /* 3. Hero Divider */
+        .light-mode .map-hero-divider span {
+            background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.3));
+        }
+
+        .light-mode .map-hero-divider i {
+            color: #4f46e5;
+        }
+
+        /* 4. Legend Pills */
+        .light-mode .map-legend-pill {
+            background: #ffffff;
+            border: 1px solid rgba(79, 70, 229, 0.15);
+            color: #475569;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .light-mode .map-legend-pill:hover {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+        }
+
+        /* 5. Map Frame */
+        .light-mode .map-frame-outer {
+            background: #ffffff;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            box-shadow: 
+                0 20px 50px rgba(0,0,0,0.08),
+                0 0 0 1px rgba(79, 70, 229, 0.05);
+        }
+
+        .light-mode .map-frame-outer iframe {
+            filter: saturate(1) brightness(1); /* Full color for light mode mapping */
+        }
+
+        .light-mode .map-corner {
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        /* 6. Meta Text */
+        .light-mode .map-meta-text {
+            color: #64748b;
+        }
+
+        .light-mode .map-meta-dot {
+            background: #4f46e5;
+            box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+        }
     </style>
 </head>
 
@@ -312,9 +404,10 @@
             <div class="map-corner map-corner--tr"></div>
             <div class="map-corner map-corner--bl"></div>
             <div class="map-corner map-corner--br"></div>
-            <iframe
-                src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F&noprof=1"
-                loading="lazy">
+            <iframe 
+                src="https://www.google.com/maps/d/embed?mid=1juX8fugDlyermPp3qL6RTqZRxAbbR6k&ehbc=2E312F" 
+                width="640" 
+                height="480">
             </iframe>
         </div>
         <div class="map-meta">

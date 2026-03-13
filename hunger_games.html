@@ -8,6 +8,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/home-button.png">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #0f0e09;
@@ -27,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 40px 80px;
+            padding: 120px 0px 80px;
             background: radial-gradient(ellipse at 50% 80%, #3d2e00 0%, #1e1700 45%, #0f0e09 100%);
             overflow: hidden;
         }
@@ -202,6 +203,70 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── LIGHT MODE OVERRIDES ── */
+
+        /* 1. Page Foundation */
+        body.light-mode {
+            background-color: #fdfbf5; /* Warm off-white */
+            color: #2c2921;            /* Deep charcoal brown */
+        }
+
+        /* 2. Hero Section */
+        .light-mode .hg-hero {
+            /* Soft golden sunrise gradient */
+            background: radial-gradient(ellipse at 50% 80%, #f5e6b3 0%, #fcf9ee 45%, #fdfbf5 100%);
+        }
+
+        .light-mode .hg-hero h1 {
+            color: #5c4500;
+            text-shadow: 0 4px 20px rgba(160, 120, 0, 0.15);
+        }
+
+        .light-mode .hg-hero-eyebrow {
+            color: #8c6a00;
+        }
+
+        .light-mode .hg-hero-sub {
+            color: #7a6a4a;
+        }
+
+        /* 3. Hero Divider */
+        .light-mode .hg-hero-divider span {
+            background: linear-gradient(90deg, transparent, #c8960a);
+        }
+
+        .light-mode .hg-hero-divider span:last-child {
+            background: linear-gradient(90deg, #c8960a, transparent);
+        }
+
+        /* 4. The Cards */
+        .light-mode .hg-card {
+            background: #ffffff;
+            border: 1px solid rgba(160, 120, 0, 0.15);
+            box-shadow: 0 8px 30px rgba(92, 69, 0, 0.08);
+        }
+
+        .light-mode .hg-card:hover {
+            box-shadow: 0 16px 48px rgba(160, 120, 0, 0.18);
+        }
+
+        .light-mode .hg-card-body h2 {
+            color: #453b1a;
+        }
+
+        .light-mode .hg-card-body p {
+            color: #635a41;
+        }
+
+        .light-mode .hg-card-number {
+            color: #8c6a00;
+        }
+
+        /* 5. Image Filter Reset */
+        .light-mode .hg-card img {
+            filter: brightness(1) saturate(1) sepia(0);
+        }
     </style>
 </head>
 
@@ -244,7 +309,7 @@
     <main class="hg-cards">
 
         <div class="hg-card revealable">
-            <img src="img/henry-river.png" alt="Henry River Mill Village">
+            <img src="img/henry-river.webp" alt="Henry River Mill Village">
             <div class="hg-card-body">
                 <p class="hg-card-number">Location 01</p>
                 <h2>District 12: Henry River Mill Village, North Carolina</h2>
@@ -264,7 +329,7 @@
         </div>
 
         <div class="hg-card revealable">
-            <img src="img/swan-house.png" alt="Swan House Atlanta">
+            <img src="img/swan-house.webp" alt="Swan House Atlanta">
             <div class="hg-card-body">
                 <p class="hg-card-number">Location 03</p>
                 <h2>President Snow's Mansion: Swan House, Georgia</h2>
@@ -284,7 +349,7 @@
         </div>
 
         <div class="hg-card revealable">
-            <img src="img/clayton-park.jpg" alt="Clayton County International Park">
+            <img src="img/clayton-park.avif" alt="Clayton County International Park">
             <div class="hg-card-body">
                 <p class="hg-card-number">Location 05</p>
                 <h2>Catching Fire Arena: Clayton County International Park</h2>

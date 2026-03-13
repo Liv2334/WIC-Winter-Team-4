@@ -8,6 +8,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/home-button.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #100c06;
@@ -27,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 40px 80px;
+            padding: 120px 0px 80px;
             background: radial-gradient(ellipse at 50% 65%, #3d2000 0%, #1e1000 45%, #100c06 100%);
             overflow: hidden;
         }
@@ -213,6 +214,79 @@
         .active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* ── LIGHT MODE OVERRIDES ── */
+
+        /* 1. Page Foundation */
+        body.light-mode {
+            background-color: #fcf9f2; /* Light sandstone/parchment */
+            color: #2a1b0a;            /* Deep espresso brown */
+        }
+
+        /* 2. Hero Section */
+        .light-mode .sw-hero {
+            /* High-noon desert sun gradient */
+            background: radial-gradient(ellipse at 50% 65%, #fce7c0 0%, #fdf5e6 45%, #fcf9f2 100%);
+        }
+
+        /* Soften the atmosphere glow */
+        .light-mode .sw-hero::before {
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(200, 100, 20, 0.08) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 75%, rgba(220, 120, 10, 0.06) 0%, transparent 55%);
+        }
+
+        /* Hide stars in light mode */
+        .light-mode .sw-hero::after {
+            display: none;
+        }
+
+        .light-mode .sw-hero h1 {
+            color: #5c3a1e;
+            text-shadow: 0 4px 20px rgba(220, 130, 30, 0.15);
+        }
+
+        .light-mode .sw-hero-eyebrow,
+        .light-mode .sw-hero-sub {
+            color: #8c5a2b;
+        }
+
+        /* 3. Hero Divider */
+        .light-mode .sw-hero-divider span {
+            background: linear-gradient(90deg, transparent, #c87830);
+        }
+
+        .light-mode .sw-hero-divider i {
+            color: #c87830;
+        }
+
+        /* 4. The Cards */
+        .light-mode .sw-card {
+            background: #ffffff;
+            border: 1px solid rgba(200, 120, 40, 0.15);
+            box-shadow: 0 8px 30px rgba(92, 58, 30, 0.06);
+        }
+
+        .light-mode .sw-card:hover {
+            box-shadow: 0 16px 48px rgba(180, 100, 20, 0.15);
+        }
+
+        .light-mode .sw-card-body h2 {
+            color: #452b14;
+        }
+
+        .light-mode .sw-card-body p {
+            color: #634a35;
+        }
+
+        .light-mode .sw-card-number {
+            color: #c87830;
+        }
+
+        /* 5. Image Filter Reset */
+        .light-mode .sw-card img {
+            filter: brightness(1) saturate(1) sepia(0);
         }
     </style>
 </head>

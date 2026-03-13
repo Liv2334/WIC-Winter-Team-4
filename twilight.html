@@ -8,6 +8,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/home-button.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #080e1a;
@@ -28,7 +29,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 40px 80px;
+            padding: 120px 0px 80px;
             background: radial-gradient(ellipse at 50% 65%, #0d2a40 0%, #071828 45%, #080e1a 100%);
             overflow: hidden;
         }
@@ -212,6 +213,80 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── LIGHT MODE OVERRIDES ── */
+
+        /* 1. Page Foundation */
+        body.light-mode {
+            background-color: #eef2f5; /* Misty PNW grey-blue */
+            color: #2c3e50;            /* Deep slate for text */
+        }
+
+        /* 2. Hero Section */
+        .light-mode .tw-hero {
+            /* Overcast sky gradient */
+            background: radial-gradient(ellipse at 50% 65%, #cbd9e6 0%, #dde6ed 45%, #eef2f5 100%);
+        }
+
+        /* Softening the atmospheric glow to look like fog */
+        .light-mode .tw-hero::before {
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(100, 150, 200, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 75%, rgba(120, 160, 210, 0.1) 0%, transparent 55%);
+        }
+
+        /* Hiding the star field (no stars in the cloudy Forks sky!) */
+        .light-mode .tw-hero::after {
+            display: none;
+        }
+
+        .light-mode .tw-hero h1 {
+            color: #1b4f72;
+            text-shadow: 0 4px 20px rgba(100, 150, 200, 0.15);
+        }
+
+        .light-mode .tw-hero-eyebrow,
+        .light-mode .tw-hero-sub {
+            color: #546e7a;
+        }
+
+        /* 3. Hero Divider */
+        .light-mode .tw-hero-divider span {
+            background: linear-gradient(90deg, transparent, #5499c7);
+        }
+
+        .light-mode .tw-hero-divider i {
+            color: #5499c7;
+        }
+
+        /* 4. The Cards */
+        .light-mode .tw-card {
+            background: #ffffff;
+            border: 1px solid rgba(100, 150, 200, 0.2);
+            box-shadow: 0 8px 30px rgba(27, 79, 114, 0.05);
+        }
+
+        .light-mode .tw-card:hover {
+            box-shadow: 0 16px 48px rgba(100, 150, 200, 0.18);
+        }
+
+        .light-mode .tw-card-body h2 {
+            color: #1b4f72;
+        }
+
+        .light-mode .tw-card-body p {
+            color: #455a64;
+        }
+
+        .light-mode .tw-card-number {
+            color: #5499c7;
+        }
+
+        /* 5. Image Filter Reset */
+        .light-mode .tw-card img {
+            /* We remove the blue tint and brightness reduction for a natural look */
+            filter: brightness(1) saturate(1) hue-rotate(0deg);
+        }
     </style>
 </head>
 
@@ -254,7 +329,7 @@
     <main class="tw-cards">
 
         <div class="tw-card revealable">
-            <img src="img/bella-house.jpg" alt="Bella Swan House">
+            <img src="img/bella-house.webp" alt="Bella Swan House">
             <div class="tw-card-body">
                 <p class="tw-card-number">Location 01</p>
                 <h2>Bella Swan's House: St. Helens, OR</h2>
@@ -264,7 +339,7 @@
         </div>
 
         <div class="tw-card revealable">
-            <img src="img/forks-high.jpg" alt="Forks High School">
+            <img src="img/forks-high.webp" alt="Forks High School">
             <div class="tw-card-body">
                 <p class="tw-card-number">Location 02</p>
                 <h2>Forks High School: Kalama, WA</h2>
@@ -294,7 +369,7 @@
         </div>
 
         <div class="tw-card revealable">
-            <img src="img/baseball-scene.jpg" alt="Baseball Scene Location">
+            <img src="img/baseball-scene.avif" alt="Baseball Scene Location">
             <div class="tw-card-body">
                 <p class="tw-card-number">Location 05</p>
                 <h2>Baseball Scene: Columbia River Gorge, OR</h2>
@@ -304,7 +379,7 @@
         </div>
 
         <div class="tw-card revealable">
-            <img src="img/carver-cafe.jpg" alt="Carver Cafe Twilight">
+            <img src="img/carver-cafe.avif" alt="Carver Cafe Twilight">
             <div class="tw-card-body">
                 <p class="tw-card-number">Location 06</p>
                 <h2>Bella & Charlie's Diner: Damascus, OR</h2>

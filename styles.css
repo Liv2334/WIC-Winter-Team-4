@@ -19,6 +19,8 @@ body {
     /* Put space around the edges of the webpage */ 
     margin: 0;
     padding: 0 50px 50px 50px;
+
+    overflow-x: hidden;
 }
 
 
@@ -144,24 +146,26 @@ button:hover {
 ***/
 
 /* ── FROSTED GLASS NAVBAR ── */
+
 .navbar ul {
     list-style: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0; /* Replaces width: 100% to prevent overflow */
     margin: 0;
     padding: 0 40px;
     height: 64px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Change to flex-start if you want it aligned left */
     gap: 8px;
     background: rgba(8, 8, 16, 0.55);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     z-index: 3000;
+    box-sizing: border-box !important; /* Forces the correct math */
 }
 
 .navbar ul li {
@@ -169,13 +173,14 @@ button:hover {
     align-items: center;
 }
 
+/* All nav links / buttons reset to plain text style */
 .navbar ul li a,
 .navbar ul li button,
 .navbar ul li .dropbtn {
     background: none;
     border: none;
     color: rgba(220, 210, 255, 0.65);
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -193,25 +198,37 @@ button:hover {
 .navbar ul li .dropbtn:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.06);
+    transform: none;
 }
 
+
+/* Home icon button */
 .home-icon {
-    background: rgba(220, 210, 255, 0.65)!important;
-    padding: 6px !important;
-    width: 36px !important;
-    height: 36px !important;
+    width: 30px !important;
+    height: 30px !important;   
+    padding: 0 !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
+    border-radius: 50% !important;
+    background-color: rgba(220, 210, 255, 0.65) !important;
+    transition: transform 0.2s ease;
 }
 
 .nav-icon {
-    width: 22px;
-    height: 22px;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 0 !important;      /* Kill the 20px margin from the img rule */
     display: block;
-    margin: 0;
+    border-radius: 0;
+    opacity: 1;                /* Fixed the syntax from opacity=1 */
 }
 
+.home-icon:hover .nav-icon {
+    opacity: 1;
+}
+
+/* Separator dot between groups */
 .navbar ul li.nav-sep {
     width: 1px;
     height: 18px;
@@ -219,26 +236,33 @@ button:hover {
     margin: 0 6px;
 }
 
-.dropdown { position: relative; display: inline-flex; z-index: 2000; }
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    z-index: 2000;
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100%);
     left: 50%;
     transform: translateX(-50%);
     background: rgba(12, 10, 28, 0.95);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 10px;
     min-width: 200px;
+    overflow: hidden;
     box-shadow: 0 16px 48px rgba(0,0,0,0.5);
 }
 
 .dropdown-content a {
     display: block;
     padding: 11px 18px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -246,10 +270,20 @@ button:hover {
     color: rgba(200, 190, 240, 0.65) !important;
     text-decoration: none;
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+.dropdown-content a:hover {
+    background: rgba(140, 80, 255, 0.1);
+    color: rgba(220, 210, 255, 0.95) !important;
+    padding-left: 24px;
 }
 
 .dropdown:hover .dropdown-content { display: block; }
 
+/* Theme toggle — pill style */
 #theme-button {
     border: 1px solid rgba(255,255,255,0.12) !important;
     color: rgba(200, 185, 255, 0.6) !important;
@@ -259,48 +293,10 @@ button:hover {
     letter-spacing: 2px !important;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 2000;
-}
-
-.dropbtn {
-    background-color: rgb(94, 77, 130);
-    color: rgb(218, 219, 236);
-    border: none;
-    padding: 5px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    min-width: 180px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-    z-index: 2000;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 12px;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--accent-color-light);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+#theme-button:hover {
+    border-color: rgba(160, 130, 255, 0.4) !important;
+    color: rgba(220, 210, 255, 0.9) !important;
+    background: rgba(140, 80, 255, 0.1) !important;
 }
 
 
@@ -400,24 +396,6 @@ img {
 }
 
 
-.home-icon {
-    width: 44px !important;    /* Force square width */
-    height: 44px !important;   /* Force square height */
-    padding: 0 !important;      /* Kill the 12px padding from the button rule */
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.556) !important; /* Your light grey background */
-}
-
-.nav-icon {
-    width: 30px !important;
-    height: 30px !important;
-    margin: 0 !important;      /* Kill the 20px margin from the img rule */
-    display: block;
-    border-radius: 0;
-    opacity: 1;                /* Fixed the syntax from opacity=1 */
-}
 
 .revealable {
     --reveal-distance: 150px; /* CSS Variable */
@@ -471,6 +449,18 @@ body.light-mode {
 .light-mode .navbar ul li a, 
 .light-mode .navbar ul li .dropbtn {
     color: #231942;
+}
+
+.light-mode .dropdown-content{
+    background: #d2cff5;
+}
+
+.light-mode .dropdown-content a{
+    color: #231942 !important;
+}
+
+.light-mode .dropdown-content a:hover{
+    color: #50399b !important;
 }
 
 /* Adjust the cards so they pop on white */

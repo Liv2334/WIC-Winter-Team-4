@@ -23,7 +23,7 @@
         /* ── HERO ── */
         .con-hero {
             position: relative;
-            padding: 140px 40px 70px;
+            padding: 140px 0px 70px;
             text-align: center;
             overflow: hidden;
         }
@@ -237,6 +237,50 @@
             color: rgba(100, 220, 150, 0.85);
         }
 
+        .connect-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+            padding-bottom: 50px;
+        }
+
+        .connect-para {
+            width: 55%;
+            padding-right: 10px;
+        }
+
+        .connect-participants {
+            width: 45%;
+            padding-right: 10px;
+            /* Added to match your site's dark glass aesthetic */
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .connect-participants p {
+            margin-bottom: 8px;
+            color: #e0ddf0;
+            font-size: 14px;
+        }
+
+        .light-mode .connect-participants p{
+            color: #a08cff
+        }
+
+        /* Ensures the layout doesn't break on mobile phones */
+        @media (max-width: 768px) {
+            .connect-container {
+                flex-direction: column;
+            }
+            .connect-para, .connect-participants {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+
         /* ── SCROLL REVEAL ── */
         .revealable {
             --reveal-distance: 60px;
@@ -257,6 +301,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
             <li class="dropdown">
                 <button class="dropbtn">Locations</button>
                 <div class="dropdown-content">
@@ -269,8 +314,9 @@
                     <a href="harry_potter.html">Harry Potter</a>
                 </div>
             </li>
-            <li><a href="map.html"><button>Map</button></a></li>
-            <li><a href="connect.html"><button>Connect With Us</button></a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
             <li><button id="theme-button">Toggle Theme</button></li>
         </ul>
     </nav>
@@ -288,31 +334,42 @@
         </div>
     </header>
 
-    <div class="con-body revealable">
-        <div class="con-card">
-
-            <div class="con-group">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" required>
+    <div id="connect" class="con-body revealable">
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 44px; margin-bottom: 20px; text-align: center;">Connect with Us</h2>
+        
+        <div class="connect-container">
+            <div class="connect-para">
+                <p style="color: rgba(200, 185, 255, 0.8); line-height: 1.6;">Want to hear from us? Fill out the form below to share your name, email, and your favorite fictional universe!</p>
             </div>
-
-            <div class="con-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="you@example.com" required>
+            
+            <div class="connect-participants">
+                <p>✦ DJ from Arrakis has connected.</p>
+                <p>✦ Amy from Hogwarts has connected.</p>
+                <p>✦ Teresa from The Shire has connected.</p>
+                <p id="connect-count" style="margin-top: 16px; color: #a08cff; font-weight: bold;">⭐ 3 travelers have joined our network!</p>
             </div>
-
-            <div class="con-group">
-                <label for="suggestions">Movies or Shows You Want Added</label>
-                <textarea id="suggestions" rows="5" placeholder="e.g. Lord of the Rings, Bridgerton, Dune..."></textarea>
-            </div>
-
-            <button class="con-submit" id="submit-btn">Send Message</button>
-
-            <div class="con-success" id="success-msg">
-                ✦ &nbsp; Message received — thank you!
-            </div>
-
         </div>
+
+        <div class="form-container">
+            <form id="connect-form" class="con-card">
+                <div class="con-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="con-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="con-group">
+                    <label for="fandom">Favorite Universe:</label>
+                    <input type="text" id="fandom" name="fandom" placeholder="e.g. Star Wars, Panem..." required>
+                </div>
+
+                <button class="con-submit" id="connect-button" type="submit">Submit</button>
+            </form>
+        </div>      
     </div>
 
     <script src="index.js"></script>

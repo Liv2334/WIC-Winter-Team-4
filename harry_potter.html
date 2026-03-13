@@ -8,6 +8,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/home-button.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #0e0c1a;
@@ -27,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 40px 80px;
+            padding: 120px 0px 80px;
             background: radial-gradient(ellipse at 50% 60%, #3b1f6b 0%, #1a0d3d 50%, #0e0c1a 100%);
             overflow: hidden;
         }
@@ -160,6 +161,16 @@
             margin: 0 auto;
         }
 
+        .hp-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #c4b8d8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
         /* ── Scroll reveal ── */
         .revealable {
             --reveal-distance: 60px;
@@ -171,6 +182,58 @@
         .active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        body.light-mode {
+            background-color: #fbfaff; /* Soft off-white */
+            color: #231942;            /* Deep navy/purple text */
+        }
+
+        /* 2. The Hero Section */
+        .light-mode .hp-hero {
+            /* Lighter lavender/magic gradient */
+            background: radial-gradient(ellipse at 50% 60%, #eaddff 0%, #f0edff 50%, #fbfaff 100%);
+        }
+
+        .light-mode .hp-hero h1 {
+            color: #482f95;
+            text-shadow: 0 0 40px rgba(124, 82, 246, 0.2);
+        }
+
+        .light-mode .hp-hero-eyebrow,
+        .light-mode .hp-hero-sub {
+            color: #684fb5;
+        }
+
+        /* 3. The Cards */
+        .light-mode .hp-card {
+            background: #ffffff;
+            border: 1px solid rgba(72, 47, 149, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .hp-card:hover {
+            box-shadow: 0 16px 40px rgba(124, 82, 246, 0.15);
+        }
+
+        .light-mode .hp-card-body h2 {
+            color: #231942;
+        }
+
+        .light-mode .hp-card-body p,
+        .light-mode .hp-card-body a {
+            color: #5c4d8c;
+        }
+
+        /* 4. Navigation (if not already handled in styles.css) */
+        .light-mode .navbar ul {
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .navbar ul li a, 
+        .light-mode .navbar ul li .dropbtn {
+            color: #231942;
         }
     </style>
 </head>
@@ -216,6 +279,7 @@
                 <h2>Christ Church, Oxford University</h2>
                 <div class="hp-card-divider"></div>
                 <p>This dining hall was the real-life model for the Hogwarts Great Hall. Filmmakers used its architecture as the blueprint for the movies. Fans can visit the actual room located within Christ Church College that inspired the most iconic location in the series.</p>
+                <a href="map.html?lat=48.8584&lng=2.2945&z=16">Go to location</a>
             </div>
         </div>
 

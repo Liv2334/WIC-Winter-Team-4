@@ -8,6 +8,7 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="img/home-button.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #04080f;
@@ -27,7 +28,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 40px 80px;
+            padding: 120px 0px 80px;
             background: radial-gradient(ellipse at 50% 65%, #051a38 0%, #020d1e 45%, #04080f 100%);
             overflow: hidden;
         }
@@ -219,6 +220,70 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── LIGHT MODE OVERRIDES ── */
+
+        /* 1. The Core Background */
+        body.light-mode {
+            background-color: #f4f7fa; /* Clean, tech-blue white */
+            color: #0d1b2a;            /* Deep navy text */
+        }
+
+        /* 2. The Hero Section */
+        .light-mode .st-hero {
+            /* Soft daylight sky gradient */
+            background: radial-gradient(ellipse at 50% 65%, #e1e8f0 0%, #edf2f7 45%, #f4f7fa 100%);
+        }
+
+        /* Softening the nebula for light mode */
+        .light-mode .st-hero::before {
+            background:
+                radial-gradient(ellipse at 20% 70%, rgba(58, 112, 200, 0.1) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 65%, rgba(100, 150, 255, 0.1) 0%, transparent 55%);
+        }
+
+        /* Hiding the starfield in light mode (stars don't show in daylight!) */
+        .light-mode .st-hero::after {
+            display: none;
+        }
+
+        .light-mode .st-hero h1 {
+            color: #1a3a6c;
+            text-shadow: 0 4px 20px rgba(58, 112, 200, 0.15);
+        }
+
+        .light-mode .st-hero-eyebrow,
+        .light-mode .st-hero-sub {
+            color: #4a5568;
+        }
+
+        /* 3. The Cards */
+        .light-mode .st-card {
+            background: #ffffff;
+            border: 1px solid rgba(58, 112, 200, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .light-mode .st-card:hover {
+            box-shadow: 0 16px 48px rgba(58, 112, 200, 0.12);
+        }
+
+        .light-mode .st-card-body h2 {
+            color: #1a3a6c;
+        }
+
+        .light-mode .st-card-body p {
+            color: #4a5568;
+        }
+
+        .light-mode .st-card-number {
+            color: #3a70c8; /* Brighter blue for visibility */
+        }
+
+        /* 4. Image Filter Reset */
+        .light-mode .st-card img {
+            filter: brightness(1) saturate(1) hue-rotate(0deg);
+        }
     </style>
 </head>
 
@@ -291,7 +356,7 @@
         </div>
 
         <div class="st-card revealable">
-            <img src="img/point-mugu.png" alt="Point Mugu State Park">
+            <img src="img/point-mugu.webp" alt="Point Mugu State Park">
             <div class="st-card-body">
                 <p class="st-card-number">Location 04</p>
                 <h2>Point Mugu State Park, Malibu, CA</h2>
@@ -301,7 +366,7 @@
         </div>
 
         <div class="st-card revealable">
-            <img src="img/griffith.png" alt="Griffith Observatory">
+            <img src="img/griffith.webp" alt="Griffith Observatory">
             <div class="st-card-body">
                 <p class="st-card-number">Location 05</p>
                 <h2>Griffith Observatory, Los Angeles, CA</h2>
@@ -311,7 +376,7 @@
         </div>
 
         <div class="st-card revealable">
-            <img src="img/getty-center.png" alt="The Getty Center">
+            <img src="img/getty-center.jpg" alt="The Getty Center">
             <div class="st-card-body">
                 <p class="st-card-number">Location 06</p>
                 <h2>Starfleet: The Getty Center, Los Angeles, CA</h2>
