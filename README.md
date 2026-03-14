@@ -48,12 +48,22 @@ A theme toggle button allows users to switch between dark mode (cinematic space-
 - index.html: the home page that has an explanation of the website, links to each of the franchises, and a learn more section
 - map.html: contains an interactive embedded Google My Map that displays the pins for each location
 - connect.html: allows users to submit their name, email, and favourite fictional movie location, and displays it for future users visiting the website
-- styles.css: contains the style definitions for basics to the website
+- styles.css: contains the style definitions for basics of the website
 - index.js: contains theme toggling, scroll animations, and Connect With Us feature
 - franchise files: displays unique themes for each franchise, separates filming locations by cards, each card contains a link to its specific location on the map page
 
+## Contributors
+Diana Zhu
+- Contributions: Navbar, overall website style, franchise pages' style, franchise page of Harry Potter, home button, toggle theme, README
+- Contact Info: dianazhu9879
 
+Lauren Peabody
+- Contributions: Created map, navbar, contact page, franchise pages of Pride and Prejudice, Twilight, The Vampire Diaries, Star Trek, The Hunger Games, Indian Jones, Divergent, Dune, Lord of the Rings, Marvel, DC, Game of Thrones, Supernatural, drop-down menu, home button, toggle theme, sources, and learn more section
+- Contact Info: laurenpea
 
+Sydnie 
+- Contributions: Franchise page of Star Wars' pictures and text
+- Contact Info: s3yee
 
 
 
