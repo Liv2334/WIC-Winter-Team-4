@@ -16,14 +16,7 @@ The website transforms fictional worlds into real-world travel experiences by co
 
 ### Key Features
 #### Franchise Grouped Exploration
-Users have the choice to explore by stepping into iconic stories sorted by franchises such as
-- Harry Potter
-- Pride & Prejudice
-- Star Trek
-- Star Wars
-- The Hunger Games
-- The Vampire Diaries
-- Twilight
+Users have the choice to explore the filming locations of 15 iconic stories, such as Harry Potter, Star Wars, Twilight, etc., all sorted by franchise. 
 
 #### Interactive World Map
 The site includes an embedded Google My Maps, allowing for physical visualization in context, geographically to the filming locations across the world.
@@ -33,20 +26,31 @@ Features include
 - Dynamically center the map on specific coordinates
 - Zoom functionality for exploring locations in detail
 
+#### Navbar
+- Icon as home page button, linking back to each page to index.html
+- Dropdown menu for franchise pages
+- Navigates to map page and connect page
+- Switches theme between light mode and dark mode
+
 #### Contact and Connect
 The Connect With Us page allows visitors to
 - Submit their name and email
 - Share their favorite fictional universe
-- Suggest new franchises or locations
-
-It also displays a running list of fictional “travelers” joining the network, creating a fun community element.
 
 #### Dark / Light Theme Toggle
 
 A theme toggle button allows users to switch between dark mode (cinematic space-themed design) and light mode (clean, atlas-style map design), allowing accessibility for different user preferences.
 
+## Visit the Website with the Link Below!
+[Click here to explore the website](https://liv2334.github.io/WIC-Winter-Team-4/)
 
-
+## Top-Level Files/Folders
+index.html: the home page that has an explanation of the website, links to each of the franchises, and a learn more section
+map.html: contains an interactive embedded Google My Map that displays the pins for each location
+connect.html: allows users to submit their name, email, and favourite fictional movie location, and displays it for future users visiting the website
+styles.css: contains the style definitions for basics to the website
+index.js: contains theme toggling, scroll animations, and Connect With Us feature
+franchise files: displays unique themes for each franchise, separates filming locations by cards, each card contains a link to its specific location on the map page
 
 
 
