@@ -45,12 +45,12 @@ A theme toggle button allows users to switch between dark mode (cinematic space-
 [Click here to explore the website](https://liv2334.github.io/WIC-Winter-Team-4/)
 
 ## Top-Level Files/Folders
-index.html: the home page that has an explanation of the website, links to each of the franchises, and a learn more section
-map.html: contains an interactive embedded Google My Map that displays the pins for each location
-connect.html: allows users to submit their name, email, and favourite fictional movie location, and displays it for future users visiting the website
-styles.css: contains the style definitions for basics to the website
-index.js: contains theme toggling, scroll animations, and Connect With Us feature
-franchise files: displays unique themes for each franchise, separates filming locations by cards, each card contains a link to its specific location on the map page
+- index.html: the home page that has an explanation of the website, links to each of the franchises, and a learn more section
+- map.html: contains an interactive embedded Google My Map that displays the pins for each location
+- connect.html: allows users to submit their name, email, and favourite fictional movie location, and displays it for future users visiting the website
+- styles.css: contains the style definitions for basics to the website
+- index.js: contains theme toggling, scroll animations, and Connect With Us feature
+- franchise files: displays unique themes for each franchise, separates filming locations by cards, each card contains a link to its specific location on the map page
 
 
 
