@@ -61,7 +61,7 @@ Lauren Peabody
 - Contributions: Created map, navbar, contact page, franchise pages of Pride and Prejudice, Twilight, The Vampire Diaries, Star Trek, The Hunger Games, Indian Jones, Divergent, Dune, Lord of the Rings, Marvel, DC, Game of Thrones, Supernatural, drop-down menu, home button, toggle theme, sources, and learn more section
 - Contact Info: laurenpea
 
-Sydnie 
+Sydnie Yee
 - Contributions: Franchise page of Star Wars' pictures and text
 - Contact Info: s3yee
 
