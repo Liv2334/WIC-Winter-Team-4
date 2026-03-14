@@ -249,7 +249,7 @@
 
         .connect-para {
             width: 55%;
-            padding-right: 10px;
+            padding-right: 10px;;
         }
 
         .connect-participants {
@@ -266,6 +266,7 @@
             margin-bottom: 8px;
             color: #e0ddf0;
             font-size: 14px;
+            font-family: 'Lato', serif;
         }
 
         .light-mode .connect-participants p{
@@ -353,7 +354,7 @@
         
         <div class="connect-container">
             <div class="connect-para">
-                <p style="color: rgba(200, 185, 255, 0.8); line-height: 1.6;">Want to hear from us? Fill out the form below to share your name, email, and your favorite fictional universe!</p>
+                <p style="color: rgba(200, 185, 255, 0.8); line-height: 1.6; font-family: 'Lato', serif;">Want to hear from us? Fill out the form below to share your name, email, and your favorite fictional universe!</p>
             </div>
             
             <div class="connect-participants">
@@ -378,15 +379,18 @@
 
                 <div class="con-group">
                     <label for="fandom">Favorite Universe:</label>
-                    <input type="text" id="fandom" name="fandom" placeholder="e.g. Star Wars, Panem..." required>
+                    <input type="text" id="fandom" name="fandom" placeholder="e.g. Arrakis, Panem..." required>
+                </div>
+
+                <div class="con-group">
+                    <label for="suggestions">Franchise Suggestions:</label>
+                    <input type="text" id="suggestions" name="suggestions" placeholder="e.g. Dr Who, Avatar...">
                 </div>
 
                 <button class="con-submit" id="connect-button" type="submit">Submit</button>
             </form>
         </div>      
     </div>
-
-    <script src="index.js"></script>
     <script>
         document.getElementById('submit-btn').addEventListener('click', function () {
             const name = document.getElementById('name').value.trim();
@@ -395,10 +399,12 @@
                 document.getElementById('success-msg').style.display = 'block';
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
+                document.getElementById('fandom').value = '';
                 document.getElementById('suggestions').value = '';
             }
         });
     </script>
+    <script src="index.js"></script>
 
 </body>
 </html>

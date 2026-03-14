@@ -133,35 +133,60 @@ window.addEventListener("scroll", reveal);
 
 /*** Form Handling ***/
 
-const submitBtn = document.getElementById('connect-button');
+const connectForm = document.getElementById('connect-form');
 let count = 3;
 
-if (submitBtn) {
+if (connectForm) {
     const addParticipant = (event) => {
-        const name = document.getElementById('name').value;
-        const fandom = document.getElementById('fandom').value;
 
-        const newParticipant = document.createElement('p');
-        newParticipant.textContent = "✦ " + name + " from " + fandom + " has connected.";
+        event.preventDefault();
 
-        const participantsDiv = document.querySelector('.connect-participants');
-        participantsDiv.appendChild(newParticipant);
+        const data = new FormData(connectForm);
 
-        const oldCounter = document.getElementById('connect-count');
-        oldCounter.remove();
+        fetch(connectForm.action, {
+            method: connectForm.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                const name = document.getElementById('name').value;
+                const fandom = document.getElementById('fandom').value;
 
-        count = count + 1;
+                // Create the new participant paragraph
+                const newParticipant = document.createElement('p');
+                newParticipant.textContent = "✦ " + name + " from " + fandom + " has connected.";
 
-        const newCounter = document.createElement('p');
-        newCounter.id = 'connect-count';
-        newCounter.style.marginTop = '16px';
-        newCounter.style.color = '#a08cff';
-        newCounter.style.fontWeight = 'bold';
-        newCounter.textContent = "⭐ " + count + " travelers have joined our network!";
+                // Append it to the list
+                const participantsDiv = document.querySelector('.connect-participants');
+                participantsDiv.appendChild(newParticipant);
 
-        participantsDiv.appendChild(newCounter);
-        document.getElementById('connect-form').reset();
+                // Remove the old counter
+                const oldCounter = document.getElementById('connect-count');
+                if (oldCounter) oldCounter.remove();
+
+                // Increase the count
+                count = count + 1;
+
+                // Create and append the new counter
+                const newCounter = document.createElement('p');
+                newCounter.id = 'connect-count';
+                newCounter.style.marginTop = '16px';
+                newCounter.style.color = '#a08cff';
+                newCounter.style.fontWeight = 'bold';
+                newCounter.textContent = "⭐ " + count + " travelers have joined our network!";
+
+                participantsDiv.appendChild(newCounter);
+
+                connectForm.reset();
+            } else {
+                alert("Oops! There was a problem submitting your form.");
+            }
+        }).catch(error => {
+            alert("Oops! There was a problem submitting your form.");
+        });
     }
 
-    submitBtn.addEventListener('click', addParticipant);
+    connectForm.addEventListener('submit', addParticipant);
 }
