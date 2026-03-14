@@ -27,6 +27,7 @@ Features include
 
 #### Navbar
 - Icon as home page button, linking back to each page to index.html
+- Search bar function to access the franchise pages
 - Dropdown menu for franchise pages
 - Navigates to map page and connect page
 - Switches theme between light mode and dark mode
