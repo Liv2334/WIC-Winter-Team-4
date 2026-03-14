@@ -1,33 +1,103 @@
-/*** Dark Mode ***
-  Purpose:
-  - Use this starter code to add a dark mode feature to your website.
-***/
+/*** Searchable Dropdown Filter ***/
+
+const dropdownSearch = document.getElementById('dropdown-search');
+const dropdownLinks = document.getElementById('dropdown-links');
+const noResults = document.getElementById('no-results');
+const locationsDropdown = document.getElementById('locations-dropdown');
+const locationsMenu = document.getElementById('locations-menu');
+const locationsBtn = document.getElementById('locations-btn');
+
+// Open dropdown and focus search on button click (instead of hover-only)
+if (locationsBtn) {
+    locationsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = locationsMenu.style.display === 'block';
+        locationsMenu.style.display = isOpen ? 'none' : 'block';
+        if (!isOpen) {
+            setTimeout(() => dropdownSearch && dropdownSearch.focus(), 50);
+        }
+    });
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (locationsDropdown && !locationsDropdown.contains(e.target)) {
+        if (locationsMenu) locationsMenu.style.display = 'none';
+        if (dropdownSearch) {
+            dropdownSearch.value = '';
+            filterDropdown('');
+        }
+    }
+});
+
+// Filter logic
+function filterDropdown(query) {
+    if (!dropdownLinks) return;
+    const links = dropdownLinks.querySelectorAll('a');
+    const q = query.toLowerCase().trim();
+    let visibleCount = 0;
+
+    links.forEach(link => {
+        const name = link.getAttribute('data-name') || link.textContent.toLowerCase();
+        const matches = name.includes(q);
+        link.style.display = matches ? 'block' : 'none';
+        if (matches) visibleCount++;
+    });
+
+    if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+}
+
+if (dropdownSearch) {
+    dropdownSearch.addEventListener('input', (e) => {
+        filterDropdown(e.target.value);
+    });
+
+    // Prevent dropdown from closing when clicking the search input
+    dropdownSearch.addEventListener('click', (e) => e.stopPropagation());
+
+    // Keep dropdown open while typing
+    dropdownSearch.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (locationsMenu) locationsMenu.style.display = 'none';
+        dropdownSearch.value = '';
+        filterDropdown('');
+    }
+    if (e.key === 'Enter') {
+        const visibleLinks = [...dropdownLinks.querySelectorAll('a')]
+            .filter(link => link.style.display !== 'none');
+        if (visibleLinks.length === 1) {
+            window.location.href = visibleLinks[0].href;
+        }
+    }
+});
+}
+
+// Override hover behavior — dropdown now controlled by click only
+if (locationsMenu) {
+    locationsMenu.style.display = 'none';
+    locationsMenu.addEventListener('click', (e) => e.stopPropagation());
+}
+
 
 /*** Theme Toggle & Memory ***/
 
 const themeButton = document.getElementById('theme-button');
 const bodyElement = document.body;
 
-// 1. On page load, check the browser's memory (localStorage) for a saved theme
 const savedTheme = localStorage.getItem('site-theme');
 
-// 2. If the saved theme is 'light', apply it immediately
 if (savedTheme === 'light') {
     bodyElement.classList.add('light-mode');
     if (themeButton) themeButton.textContent = "Dark Mode";
 } else {
-    // Default state
     if (themeButton) themeButton.textContent = "Light Mode";
 }
 
-// 3. Add the click event listener (with a safety check in case the button is missing!)
 if (themeButton) {
     themeButton.addEventListener('click', () => {
-        
-        // Toggle the class on the body
         bodyElement.classList.toggle('light-mode');
-        
-        // 4. Update memory and button text based on the new state
         if (bodyElement.classList.contains('light-mode')) {
             localStorage.setItem('site-theme', 'light');
             themeButton.textContent = "Dark Mode";
@@ -38,99 +108,60 @@ if (themeButton) {
     });
 }
 
-/*** Scroll Animations ***
-  Purpose:
-  - Use this starter code to add scroll animations to your website.
-***/
 
+/*** Scroll Animations ***/
 
-// Step 1: Select all elements with the class 'revealable'.
 let revealableContainers = document.querySelectorAll(".revealable");
 
-
-// Step 2: Write function to reveal elements when they are in view.
 const reveal = () => {
     for (let i = 0; i < revealableContainers.length; i++) {
         let current = revealableContainers[i];
-
-
-        // Get current height of container and window
         let windowHeight = window.innerHeight;
         let topOfRevealableContainer = current.getBoundingClientRect().top;
         let revealDistance = parseInt(getComputedStyle(current).getPropertyValue('--reveal-distance'), 10);
 
-
-        // If the container is within range, add the 'active' class to reveal
         if (topOfRevealableContainer < windowHeight - revealDistance) {
             current.classList.add("active");
-        }
-        // If the container is not within range, hide it by removing the 'active' class
-        else {
+        } else {
             current.classList.remove("active");
         }
     }
 }
 
-
-// Step 3: Whenever the user scrolls, check if any containers should be revealed
 window.addEventListener("scroll", reveal);
 
 
-/*** Form Handling [PLACEHOLDER] ***/
-/*** Form Validation [PLACEHOLDER] ***/
-/*** Form Handling ***
-  Purpose:
-  - When the user submits the form, the name and universe they
-    entered should be added to the list of participants.
-***/
+/*** Form Handling ***/
 
-// Step 1: Add your query for the submit button here
 const submitBtn = document.getElementById('connect-button');
 let count = 3;
 
-const addParticipant = (event) => {
-    // Step 2: Write your code to manipulate the DOM here
+if (submitBtn) {
+    const addParticipant = (event) => {
+        const name = document.getElementById('name').value;
+        const fandom = document.getElementById('fandom').value;
 
-    // Get the inputs (ignoring email for privacy as instructed)
-    const name = document.getElementById('name').value;
-    const fandom = document.getElementById('fandom').value;
+        const newParticipant = document.createElement('p');
+        newParticipant.textContent = "✦ " + name + " from " + fandom + " has connected.";
 
-    // Create a new <p> element for the participant
-    const newParticipant = document.createElement('p');
-    newParticipant.textContent = "✦ " + name + " from " + fandom + " has connected.";
+        const participantsDiv = document.querySelector('.connect-participants');
+        participantsDiv.appendChild(newParticipant);
 
-    // Find the connect-participants div and append the new element
-    const participantsDiv = document.querySelector('.connect-participants');
-    participantsDiv.appendChild(newParticipant);
+        const oldCounter = document.getElementById('connect-count');
+        oldCounter.remove();
 
-    // --- Counter Logic ---
-    
-    // Find and remove the old counter
-    const oldCounter = document.getElementById('connect-count');
-    oldCounter.remove();
+        count = count + 1;
 
-    // Add 1 to the count
-    count = count + 1;
+        const newCounter = document.createElement('p');
+        newCounter.id = 'connect-count';
+        newCounter.style.marginTop = '16px';
+        newCounter.style.color = '#a08cff';
+        newCounter.style.fontWeight = 'bold';
+        newCounter.textContent = "⭐ " + count + " travelers have joined our network!";
 
-    // Create a new counter HTML p tag
-    const newCounter = document.createElement('p');
-    newCounter.id = 'connect-count';
-    newCounter.style.marginTop = '16px';
-    newCounter.style.color = '#a08cff';
-    newCounter.style.fontWeight = 'bold';
-    newCounter.textContent = "⭐ " + count + " travelers have joined our network!";
+        participantsDiv.appendChild(newCounter);
+        document.getElementById('connect-form').reset();
+    }
 
-    // Append this counter to the bottom of the participants div
-    participantsDiv.appendChild(newCounter);
-
-    // Clear the form after submission
-    document.getElementById('connect-form').reset();
+    submitBtn.addEventListener('click', addParticipant);
 }
-
-// Step 3: Add a click event listener to the submit button here
-submitBtn.addEventListener('click', addParticipant);
-
-/*** Animations [PLACEHOLDER] ***/
-/*** Success Modal [PLACEHOLDER] ***/
-
-

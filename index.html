@@ -18,8 +18,8 @@
             padding: 0;
             margin: 0;
             width: 100%;
-            min-height: 100vh; /* This forces the body to be at least as tall as the screen */
-            overflow-x: hidden; /* This prevents accidental side-scrolling gaps */
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* ── HERO ── */
@@ -36,7 +36,6 @@
             padding: 120px 0px 80px;
         }
 
-        /* Multi-color nebula */
         .idx-hero::before {
             content: '';
             position: absolute;
@@ -49,7 +48,6 @@
             pointer-events: none;
         }
 
-        /* Star field */
         .idx-hero::after {
             content: '';
             position: absolute;
@@ -98,7 +96,6 @@
             display: block;
         }
 
-        /* Giant title — stacked two lines */
         .idx-title {
             font-family: 'Bebas Neue', sans-serif;
             font-weight: 400;
@@ -134,7 +131,6 @@
             text-shadow: none;
         }
 
-        /* Scroll indicator */
         .idx-scroll {
             position: absolute;
             bottom: 40px;
@@ -202,7 +198,11 @@
         /* ── FRANCHISE GRID ── */
         .idx-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            /* This makes each column exactly 250px wide */
+            grid-template-columns: repeat(3, 300px); 
+            
+            /* This centers the whole grid on the page */
+            justify-content: center; 
             gap: 16px;
             margin-bottom: 100px;
         }
@@ -218,7 +218,7 @@
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 10px;
-            padding: 28px 20px;
+            padding: 48px 20px;
             text-align: center;
             overflow: hidden;
             transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
@@ -241,12 +241,6 @@
 
         .idx-card:hover::before { opacity: 1; }
 
-        .idx-card-emoji {
-            font-size: 28px;
-            display: block;
-            margin-bottom: 12px;
-            line-height: 1;
-        }
 
         .idx-card-title {
             font-family: 'Lato', sans-serif;
@@ -374,6 +368,7 @@
             border: 1px solid rgba(255,255,255,0.08);
         }
 
+
         /* ── SCROLL REVEAL ── */
         .revealable {
             --reveal-distance: 60px;
@@ -386,42 +381,111 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ── LIGHT MODE ── */
+        body.light-mode {
+            background-color: #ede1f6;
+            color: #1a1a2e;
+        }
+
+        .light-mode .idx-hero { background: #ede1f6; }
+
+        .light-mode .idx-hero::before {
+            background:
+                radial-gradient(ellipse at 15% 45%, rgba(140, 80, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 35%, rgba(255, 100, 150, 0.1) 0%, transparent 48%);
+        }
+
+        .light-mode .idx-title-line1 {
+            color: #231942;
+            text-shadow: 0 0 30px rgba(140, 80, 255, 0.2);
+        }
+
+        .light-mode .idx-title-line2 { -webkit-text-stroke: 1.5px rgba(11, 8, 20, 0.5); }
+
+        .light-mode .navbar ul {
+            background: rgba(234, 216, 252, 0.7);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .light-mode .navbar ul li a,
+        .light-mode .navbar ul li .dropbtn { color: #231942; }
+
+        .light-mode .dropdown-content { background: #d2cff5; }
+        .light-mode .dropdown-content a { color: #231942 !important; }
+        .light-mode .dropdown-content a:hover { color: #50399b !important; }
+        .light-mode .dropdown-search-input { color: #231942; background: rgba(0,0,0,0.04); }
+
+        .light-mode .idx-card {
+            background: rgb(229, 214, 243);
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .light-mode .idx-card-title { color: #231942; }
+        .light-mode .idx-about-text h2 { color: #231942; }
+        .light-mode .idx-about-text p { color: #5c4d8c; }
+
+        body.light-mode #theme-button {
+            color: #080810 !important;
+            border-color: rgba(0,0,0,0.2) !important;
+            background: rgba(0,0,0,0.05) !important;
+        }
+
+        body.light-mode #theme-button:hover {
+            color: #000 !important;
+            background: rgba(0,0,0,0.1) !important;
+            border-color: rgba(0,0,0,0.4) !important;
+        }
     </style>
 </head>
 
 <body>
-
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
             <li class="nav-sep"></li>
-            <li class="dropdown">
-                <button class="dropbtn">Locations</button>
-                <div class="dropdown-content">
-                    <a href="Star_Wars.html">Star Wars</a>
-                    <a href="pride_prej.html">Pride & Prejudice</a>
-                    <a href="twilight.html">Twilight</a>
-                    <a href="vampire_diaries.html">The Vampire Diaries</a>
-                    <a href="star_trek.html">Star Trek</a>
-                    <a href="hunger_games.html">The Hunger Games</a>
-                    <a href="harry_potter.html">Harry Potter</a>
-                    <a href="indiana_jones.html">Indiana Jones</a>
-                    <a href="divergent.html">Divergent</a>
-                    <a href="dune.html">Dune</a>
-                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
-                    <a href="marvel.html">Marvel</a>
-                    <a href="dc.html">DC</a>
-                    <a href="game_of_thrones.html">Game of Thrones</a>
-                    <a href="supernatural.html">Supernatural</a>
+
+            <!-- SEARCHABLE DROPDOWN -->
+            <li class="dropdown" id="locations-dropdown">
+                <button class="dropbtn" id="locations-btn">Locations</button>
+                <div class="dropdown-content" id="locations-menu">
+                    <input
+                        type="text"
+                        id="dropdown-search"
+                        class="dropdown-search-input"
+                        placeholder="Search franchises..."
+                        autocomplete="off"
+                    >
+                    <div id="dropdown-links">
+                        <a href="dc.html">DC</a>
+                        <a href="divergent.html">Divergent</a>
+                        <a href="dune.html">Dune</a>
+                        <a href="game_of_thrones.html">Game of Thrones</a>
+                        <a href="harry_potter.html">Harry Potter</a>
+                        <a href="hunger_games.html">The Hunger Games</a>
+                        <a href="indiana_jones.html">Indiana Jones</a>
+                        <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                        <a href="marvel.html">Marvel</a>
+                        <a href="pride_prej.html">Pride & Prejudice</a>
+                        <a href="star_trek.html">Star Trek</a>
+                        <a href="Star_Wars.html">Star Wars</a>
+                        <a href="supernatural.html">Supernatural</a>
+                        <a href="twilight.html">Twilight</a>
+                        <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    </div>
+                    <p class="dropdown-no-results" id="no-results">No franchise found</p>
                 </div>
             </li>
+
             <li><a href="map.html">Map</a></li>
             <li><a href="connect.html">Connect With Us</a></li>
             <li class="nav-sep"></li>
-            <li><button id="theme-button">Toggle Theme</button></li>
+            <li><button id="theme-button">Light Mode</button></li>
         </ul>
     </nav>
 
+    <!-- HERO -->
     <header class="idx-hero">
         <div class="idx-hero-inner">
             <span class="idx-eyebrow">The Ultimate Guide</span>
@@ -439,101 +503,80 @@
 
     <div class="idx-content">
 
+        <!-- FRANCHISE GRID -->
         <section id="explore" class="revealable">
             <p class="idx-section-label">Browse by Franchise</p>
             <h2 class="idx-section-title">Where do you want to travel?</h2>
             <div class="idx-grid">
                 <a href="Star_Wars.html" class="idx-card" style="--card-glow: rgba(255,200,50,0.18)">
-                    <span class="idx-card-emoji">⭐</span>
                     <span class="idx-card-title">Star Wars</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="pride_prej.html" class="idx-card" style="--card-glow: rgba(200,150,200,0.18)">
-                    <span class="idx-card-emoji">🌹</span>
                     <span class="idx-card-title">Pride & Prejudice</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="twilight.html" class="idx-card" style="--card-glow: rgba(100,150,255,0.18)">
-                    <span class="idx-card-emoji">🌙</span>
                     <span class="idx-card-title">Twilight</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="vampire_diaries.html" class="idx-card" style="--card-glow: rgba(180,20,20,0.22)">
-                    <span class="idx-card-emoji">🧛</span>
                     <span class="idx-card-title">The Vampire Diaries</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="star_trek.html" class="idx-card" style="--card-glow: rgba(50,150,255,0.18)">
-                    <span class="idx-card-emoji">🚀</span>
                     <span class="idx-card-title">Star Trek</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="hunger_games.html" class="idx-card" style="--card-glow: rgba(200,150,0,0.2)">
-                    <span class="idx-card-emoji">🏹</span>
                     <span class="idx-card-title">The Hunger Games</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="harry_potter.html" class="idx-card" style="--card-glow: rgba(140,80,255,0.22)">
-                    <span class="idx-card-emoji">🪄</span>
                     <span class="idx-card-title">Harry Potter</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="indiana_jones.html" class="idx-card" style="--card-glow: rgba(180,100,30,0.2)">
-                    <span class="idx-card-emoji">🗺️</span>
                     <span class="idx-card-title">Indiana Jones</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="divergent.html" class="idx-card" style="--card-glow: rgba(255,100,50,0.2)">
-                    <span class="idx-card-emoji">🏢</span>
                     <span class="idx-card-title">Divergent</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="dune.html" class="idx-card" style="--card-glow: rgba(255,150,50,0.2)">
-                    <span class="idx-card-emoji">🏜️</span>
                     <span class="idx-card-title">Dune</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="lord_of_the_rings.html" class="idx-card" style="--card-glow: rgba(255,215,0,0.2)">
-                    <span class="idx-card-emoji">💍</span>
                     <span class="idx-card-title">Lord of the Rings</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="marvel.html" class="idx-card" style="--card-glow: rgba(255,30,30,0.2)">
-                    <span class="idx-card-emoji">🦸‍♂️</span>
                     <span class="idx-card-title">Marvel</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="dc.html" class="idx-card" style="--card-glow: rgba(0,102,255,0.2)">
-                    <span class="idx-card-emoji">🦇</span>
                     <span class="idx-card-title">DC</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="game_of_thrones.html" class="idx-card" style="--card-glow: rgba(93,147,184,0.2)">
-                    <span class="idx-card-emoji">❄</span>
                     <span class="idx-card-title">Game of Thrones</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
                 <a href="supernatural.html" class="idx-card" style="--card-glow: rgba(179,0,0,0.2)">
-                    <span class="idx-card-emoji">🚗</span>
                     <span class="idx-card-title">Supernatural</span>
                     <span class="idx-card-arrow">Explore →</span>
                 </a>
             </div>
         </section>
 
+        <!-- ABOUT -->
         <section class="idx-about revealable">
             <div class="idx-about-text">
                 <h2>About This Guide</h2>
-                <p>
-                    Pop culture tourism allows fans to explore the real-world places where
-                    their favorite movies and TV shows were filmed. This guide helps you
-                    discover those locations so you can turn fictional worlds into real
-                    travel destinations.
-                </p>
-                <p>
-                    Browse the franchises to learn about filming locations, where they
-                    are in the world, and how to visit them yourself.
-                </p>
+                <p>Pop culture tourism allows fans to explore the real-world places where their favorite movies and TV shows were filmed. This guide helps you discover those locations so you can turn fictional worlds into real travel destinations.</p>
+                <p>Browse the franchises to learn about filming locations, where they are in the world, and how to visit them yourself.</p>
             </div>
             <div class="idx-about-stat">
                 <span class="idx-stat-number">15</span>
@@ -541,41 +584,32 @@
             </div>
         </section>
 
+        <!-- RESOURCES -->
         <section class="idx-resources revealable">
-                    <p class="idx-section-label">Additional Resources</p>
-                    <h2 class="idx-section-title" style="margin-bottom: 20px;">Learn More</h2>
-                    
-                    <p style="margin-bottom: 30px;">Ready to plan your own pop culture pilgrimage? Dive into these tools, databases, and communities tailored specifically for "set-jetters":</p>
+            <p class="idx-section-label">Additional Resources</p>
+            <h2 class="idx-section-title" style="margin-bottom: 20px;">Learn More</h2>
 
-                    <ul style="text-align: left; max-width: 700px; margin: 0 auto 60px; line-height: 1.8; font-family: 'Lato', sans-serif; font-size: 16px; color: rgba(200, 190, 230, 0.8);">
-                        <li style="margin-bottom: 12px;"><a href="http://www.movie-locations.com/" target="_blank">Movie-Locations.com</a> – The ultimate database for exact street addresses and travel directions to famous film sets.</li>
-                        <li style="margin-bottom: 12px;"><a href="https://setjetters.com/" target="_blank">SetJetters</a> – A community app built for pop culture tourists to find locations and share side-by-side photos.</li>
-                        <li style="margin-bottom: 12px;"><a href="https://www.atlasobscura.com/" target="_blank">Atlas Obscura</a> – A global guide to hidden wonders, featuring obscure real-world locations tied to sci-fi and fantasy.</li>
-                        <li style="margin-bottom: 12px;"><a href="https://www.geekyexplorer.com/" target="_blank">Geeky Explorer</a> – A travel blog dedicated entirely to geeky destinations, offering practical itineraries for fans.</li>
-                        <li style="margin-bottom: 12px;"><a href="https://www.fandom.com/" target="_blank">Fandom.com</a> – Brush up on the deep lore, character histories, and fictional geography before you pack your bags.</li>
-                        <li style="margin-bottom: 12px;"><a href="https://www.viator.com/tours/themes/film-and-tv-tours" target="_blank">Viator Film Tours</a> – Book official walking tours and day trips to famous production sets all over the world.</li>
-                        <li><a href="https://m.imdb.com/?ref_=sr_nv_home" target="_blank">IMDb</a> – Dive deeper into cast, crew, and behind-the-scenes production trivia.</li>
-                    </ul>
+            <p style="margin-bottom: 30px;">Ready to plan your own pop culture pilgrimage? Dive into these tools, databases, and communities tailored specifically for "set-jetters":</p>
 
-                    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: #bdaaf5; margin-bottom: 30px;">Watch & Get Inspired</h3>
-                    
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
-                        <iframe
-                            width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/tZmA_VF6cm8"
-                            allowfullscreen>
-                        </iframe>
-                        <iframe
-                            width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/59H7sC1vLes"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </section>
+            <ul style="text-align: left; max-width: 700px; margin: 0 auto 60px; line-height: 1.8; font-family: 'Lato', sans-serif; font-size: 16px; color: rgba(200, 190, 230, 0.8);">
+                <li style="margin-bottom: 12px;"><a href="http://www.movie-locations.com/" target="_blank">Movie-Locations.com</a> – The ultimate database for exact street addresses and travel directions to famous film sets.</li>
+                <li style="margin-bottom: 12px;"><a href="https://setjetters.com/" target="_blank">SetJetters</a> – A community app built for pop culture tourists to find locations and share side-by-side photos.</li>
+                <li style="margin-bottom: 12px;"><a href="https://www.atlasobscura.com/" target="_blank">Atlas Obscura</a> – A global guide to hidden wonders, featuring obscure real-world locations tied to sci-fi and fantasy.</li>
+                <li style="margin-bottom: 12px;"><a href="https://www.geekyexplorer.com/" target="_blank">Geeky Explorer</a> – A travel blog dedicated entirely to geeky destinations, offering practical itineraries for fans.</li>
+                <li style="margin-bottom: 12px;"><a href="https://www.fandom.com/" target="_blank">Fandom.com</a> – Brush up on the deep lore, character histories, and fictional geography before you pack your bags.</li>
+                <li style="margin-bottom: 12px;"><a href="https://www.viator.com/tours/themes/film-and-tv-tours" target="_blank">Viator Film Tours</a> – Book official walking tours and day trips to famous production sets all over the world.</li>
+                <li><a href="https://m.imdb.com/?ref_=sr_nv_home" target="_blank">IMDb</a> – Dive deeper into cast, crew, and behind-the-scenes production trivia.</li>
+            </ul>
 
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: #bdaaf5; margin-bottom: 30px;">Watch & Get Inspired</h3>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tZmA_VF6cm8" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/59H7sC1vLes" allowfullscreen></iframe>
             </div>
+        </section>
+
+    </div>
 
     <script src="index.js"></script>
 

@@ -18,6 +18,7 @@
             margin: 0;
         }
 
+
         /* ── HERO ── */
         .st-hero {
             position: relative;
@@ -298,29 +299,32 @@
 </head>
 
 <body>
-
     <nav class="navbar">
         <ul>
             <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
             <li class="nav-sep"></li>
-            <li class="dropdown">
-                <button class="dropbtn">Locations</button>
-                <div class="dropdown-content">
-                    <a href="Star_Wars.html">Star Wars</a>
-                    <a href="pride_prej.html">Pride & Prejudice</a>
-                    <a href="twilight.html">Twilight</a>
-                    <a href="vampire_diaries.html">The Vampire Diaries</a>
-                    <a href="star_trek.html">Star Trek</a>
-                    <a href="hunger_games.html">The Hunger Games</a>
-                    <a href="harry_potter.html">Harry Potter</a>
-                    <a href="indiana_jones.html">Indiana Jones</a>
-                    <a href="divergent.html">Divergent</a>
-                    <a href="dune.html">Dune</a>
-                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
-                    <a href="marvel.html">Marvel</a>
-                    <a href="dc.html">DC</a>
-                    <a href="game_of_thrones.html">Game of Thrones</a>
-                    <a href="supernatural.html">Supernatural</a>
+            <li class="dropdown" id="locations-dropdown">
+                <button class="dropbtn" id="locations-btn">Locations</button>
+                <div class="dropdown-content" id="locations-menu">
+                    <input type="text" id="dropdown-search" class="dropdown-search-input" placeholder="Search franchises..." autocomplete="off">
+                    <div id="dropdown-links">
+                        <a href="dc.html">DC</a>
+                        <a href="divergent.html">Divergent</a>
+                        <a href="dune.html">Dune</a>
+                        <a href="game_of_thrones.html">Game of Thrones</a>
+                        <a href="harry_potter.html">Harry Potter</a>
+                        <a href="hunger_games.html">The Hunger Games</a>
+                        <a href="indiana_jones.html">Indiana Jones</a>
+                        <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                        <a href="marvel.html">Marvel</a>
+                        <a href="pride_prej.html">Pride & Prejudice</a>
+                        <a href="star_trek.html">Star Trek</a>
+                        <a href="Star_Wars.html">Star Wars</a>
+                        <a href="supernatural.html">Supernatural</a>
+                        <a href="twilight.html">Twilight</a>
+                        <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    </div>
+                    <p class="dropdown-no-results" id="no-results">No franchise found</p>
                 </div>
             </li>
             <li><a href="map.html">Map</a></li>
