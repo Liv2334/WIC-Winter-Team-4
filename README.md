@@ -1,24 +1,68 @@
 # WIC-Winter-Team-4
-WIC Winter Team Project, Interactive pop culture tourism website
 
 ## Description of Website
 ### Overview
 The Pop Culture Travel Tourism is an immersive, interactive web application designed for "set-jetters"—travelers who want to visit the real-world filming locations of their favorite cinematic universes. By blending iconic fictional franchises with functional travel data, the project transforms fictional worlds into tangible destinations.
 
+
 ### Purpose
-The primary goal is to provide a centralized, visually appealing resource that simplifies the discovery of filming locations. Instead of hunting through fan wikis and travel blogs, users can find curated, verified location data for major franchises in a single, cohesive experience.
+Many fans want to visit real-world filming locations from their favorite movies and TV shows, but information about these places is often scattered across different websites, blogs, and forums. This makes it difficult to easily discover where these locations are and how they relate to specific franchises.
+
+The Pop Culture Travel Guide solves this problem by centralizing filming locations from popular franchises into one interactive platform, allowing users to explore where scenes were filmed and plan potential travel destinations.
+
+The website transforms fictional worlds into real-world travel experiences by combining franchise browsing, location information, and an interactive global map.
+
 
 ### Key Features
-Interactive Global Mapping: A dedicated geospatial interface (map.html) that aggregates filming locations from all seven franchises onto a single world map.
+#### Franchise Grouped Exploration
+Users have the choice to explore the filming locations of 15 iconic stories, such as Harry Potter, Star Wars, Twilight, etc., all sorted by franchise. 
 
-Integrated Legend System: Custom-styled legend pills that allow users to identify locations by franchise (e.g., distinguishing Star Wars desert outposts from Harry Potter castles) at a glance.
+#### Interactive World Map
+The site includes an embedded Google My Maps, allowing for physical visualization in context, geographically to the filming locations across the world.
+Features include
+- Global visualization of filming locations
+- Franchise legend to identify locations
+- Dynamically center the map on specific coordinates
+- Zoom functionality for exploring locations in detail
 
-Cinematic Map UI: A custom "Frame" design featuring neon corner accents and a pulsing "live" meta-data indicator, ensuring the map feels like an extension of the cinematic universes.
+#### Navbar
+- Icon as home page button, linking back to each page to index.html
+- Dropdown menu for franchise pages
+- Navigates to map page and connect page
+- Switches theme between light mode and dark mode
 
-Franchise-Specific Portals: Deep-dive pages for various cinematic universes, each featuring unique visual themes.
+#### Contact and Connect
+The Connect With Us page allows visitors to
+- Submit their name and email
+- Share their favorite fictional universe
 
-Problem Solved
+#### Dark / Light Theme Toggle
 
-Geospatial Visualization: Many fans don't realize how close certain filming locations are to one another (e.g., several franchises filming in the UK or North Carolina). The map solves this by providing a geographic context that list-based guides cannot.
+A theme toggle button allows users to switch between dark mode (cinematic space-themed design) and light mode (clean, atlas-style map design), allowing accessibility for different user preferences.
 
-Fragmented Planning: Instead of jumping between multiple tabs to plan a trip, the map provides a unified view of all 7 franchises, allowing for multi-fandom travel itineraries.
+## Visit the Website with the Link Below!
+[Click here to explore the website](https://liv2334.github.io/WIC-Winter-Team-4/)
+
+## Top-Level Files/Folders
+- index.html: the home page that has an explanation of the website, links to each of the franchises, and a learn more section
+- map.html: contains an interactive embedded Google My Map that displays the pins for each location
+- connect.html: allows users to submit their name, email, and favourite fictional movie location, and displays it for future users visiting the website
+- styles.css: contains the style definitions for basics of the website
+- index.js: contains theme toggling, scroll animations, and Connect With Us feature
+- franchise files: displays unique themes for each franchise, separates filming locations by cards, each card contains a link to its specific location on the map page
+
+## Contributors
+Diana Zhu
+- Contributions: Navbar, overall website style, franchise pages' style, franchise page of Harry Potter, home button, toggle theme, README
+- Contact Info: dianazhu9879
+
+Lauren Peabody
+- Contributions: Created map, navbar, contact page, franchise pages of Pride and Prejudice, Twilight, The Vampire Diaries, Star Trek, The Hunger Games, Indian Jones, Divergent, Dune, Lord of the Rings, Marvel, DC, Game of Thrones, Supernatural, drop-down menu, home button, toggle theme, sources, and learn more section
+- Contact Info: laurenpea
+
+Sydnie Yee
+- Contributions: Franchise page of Star Wars' pictures and text
+- Contact Info: s3yee
+
+
+
