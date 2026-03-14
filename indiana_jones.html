@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indiana Jones Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #140f0c; /* Very dark brown/espresso */
+            color: #d1c5b8;
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .ij-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Aged leather and sepia tones */
+            background: radial-gradient(ellipse at 50% 60%, #4a2d18 0%, #26150b 50%, #140f0c 100%);
+            overflow: hidden;
+        }
+
+        .ij-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,230,200,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(255,230,200,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 50% 70%, rgba(255,230,200,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,230,200,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(255,230,200,0.2) 0%, transparent 100%),
+                radial-gradient(1px 1px at 35% 50%, rgba(255,230,200,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 85%, rgba(255,230,200,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(210,160,100,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .ij-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #d49a5b; /* Antique gold/brass */
+            margin-bottom: 20px;
+        }
+
+        .ij-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #f2e3d5; /* Sand/Parchment */
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 60px rgba(212, 154, 91, 0.4); /* Golden glow */
+        }
+
+        .ij-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #c4a485;
+            letter-spacing: 0.5px;
+        }
+
+        .ij-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d49a5b, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .ij-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .ij-card {
+            background: #1f1611;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 154, 91, 0.15);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ij-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(180, 100, 40, 0.25);
+        }
+
+        .ij-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            filter: brightness(0.9) saturate(0.85) sepia(0.2);
+            transition: filter 0.3s ease;
+        }
+
+        .ij-card:hover img {
+            filter: brightness(1) saturate(1.1) sepia(0);
+        }
+
+        .ij-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .ij-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #d49a5b; /* Antique gold */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .ij-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #f2e3d5;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .ij-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d49a5b, transparent);
+            margin: 18px auto;
+        }
+
+        .ij-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #baa898;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .ij-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #d49a5b;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f7f1eb; /* Sand/Parchment */
+            color: #3b2818;            /* Dark brown text */
+        }
+
+        .light-mode .ij-hero {
+            /* Sandy desert gradient */
+            background: radial-gradient(ellipse at 50% 60%, #ebd8c5 0%, #f0e6da 50%, #f7f1eb 100%);
+        }
+
+        .light-mode .ij-hero h1 {
+            color: #5c391d;
+            text-shadow: 0 0 40px rgba(186, 118, 56, 0.2);
+        }
+
+        .light-mode .ij-hero-eyebrow,
+        .light-mode .ij-hero-sub {
+            color: #8a5a2b;
+        }
+
+        .light-mode .ij-card {
+            background: #ffffff;
+            border: 1px solid rgba(138, 90, 43, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .ij-card:hover {
+            box-shadow: 0 16px 40px rgba(138, 90, 43, 0.15);
+        }
+
+        .light-mode .ij-card-body h2 {
+            color: #4a3018;
+        }
+
+        .light-mode .ij-card-body p {
+            color: #6e543e;
+        }
+        
+        .light-mode .ij-card-body a {
+            color: #a86c32;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="ij-hero">
+        <p class="ij-hero-eyebrow">Filming Locations</p>
+        <h1>Indiana Jones</h1>
+        <p class="ij-hero-sub">Enter the action-packed world of Indiana Jones</p>
+        <div class="ij-hero-divider"></div>
+    </header>
+
+    <main class="ij-cards">
+
+        <div class="ij-card revealable">
+            <img src="img/petra.webp" alt="Al-Khazneh in Petra">
+            <div class="ij-card-body">
+                <p class="ij-card-number">Location 01</p>
+                <h2>The Canyon of the Crescent Moon: Petra, Jordan</h2>
+                <div class="ij-card-divider"></div>
+                <p>One of the most breathtaking reveals in cinema history. At the climax of *The Last Crusade*, Indy rides through the Siq to discover the temple housing the Holy Grail. In reality, this is Al-Khazneh (The Treasury) in the ancient Nabataean city of Petra.</p>
+                <a href="map.html?lat=30.3222&lng=35.4515&z=17">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="ij-card revealable">
+            <img src="img/kauai.avif" alt="Kauai Jungle">
+            <div class="ij-card-body">
+                <p class="ij-card-number">Location 02</p>
+                <h2>The Peruvian Jungle: Kauai, Hawaii</h2>
+                <div class="ij-card-divider"></div>
+                <p>The thrilling opening sequence of *Raiders of the Lost Ark* introduces us to Indiana Jones in a treacherous, booby-trapped jungle in South America. These lush landscapes were actually filmed along the Huleia River in Kauai.</p>
+                <a href="map.html?lat=21.9429&lng=-159.3804&z=14">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="ij-card revealable">
+            <img src="img/cairo.webp" alt="Kairouan Dig Site">
+            <div class="ij-card-body">
+                <p class="ij-card-number">Location 03</p>
+                <h2>Streets of Cairo: Kairouan, Tunisia</h2>
+                <div class="ij-card-divider"></div>
+                <p>When Indy and Marion are chased through the bustling streets and markets of 1930s Cairo in *Raiders of the Lost Ark*, they were actually filming in Kairouan, Tunisia. It's the site of the famous sword vs. gun duel.</p>
+                <a href="map.html?lat=35.6781&lng=10.0963&z=15">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="ij-card revealable">
+            <img src="img/venice.avif" alt="Church of San Barnaba">
+            <div class="ij-card-body">
+                <p class="ij-card-number">Location 04</p>
+                <h2>The Venetian Library: Church of San Barnaba, Italy</h2>
+                <div class="ij-card-divider"></div>
+                <p>In *The Last Crusade*, Indy travels to Venice looking for Sir Richard's tomb. The exterior of the converted library where "X marks the spot" is the real-world Chiesa di San Barnaba, situated on a picturesque Venetian canal.</p>
+                <a href="map.html?lat=45.4330&lng=12.3256&z=18">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="ij-card revealable">
+            <img src="img/brunwald.webp" alt="Castle Brunwald">
+            <div class="ij-card-body">
+                <p class="ij-card-number">Location 05</p>
+                <h2>Castle Brunwald: Schloss Bürresheim, Germany</h2>
+                <div class="ij-card-divider"></div>
+                <p>To rescue his father, Indy infiltrates the heavily guarded Castle Brunwald, supposedly located on the Austrian-German border. The impressive stone exterior belongs to Schloss Bürresheim, a medieval castle in western Germany.</p>
+                <a href="map.html?lat=50.3533&lng=7.1794&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

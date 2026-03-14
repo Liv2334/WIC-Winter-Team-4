@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #120404; /* Very deep crimson/black */
+            color: #e8dcdc;            /* Soft red-tinted white */
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .mv-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Classic Marvel red gradient */
+            background: radial-gradient(ellipse at 50% 60%, #a61216 0%, #520507 50%, #120404 100%);
+            overflow: hidden;
+        }
+
+        /* Comic book halftone/energy dust effect */
+        .mv-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(255,200,200,0.3) 0%, transparent 100%),
+                radial-gradient(2px 2px at 50% 70%, rgba(255,100,100,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(255,150,150,0.2) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(255,50,50,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .mv-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #ff4d4d; /* Bright red */
+            margin-bottom: 20px;
+        }
+
+        .mv-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 50px rgba(230, 36, 41, 0.6); /* Red energy glow */
+        }
+
+        .mv-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #ffb3b3; /* Soft pinkish-red */
+            letter-spacing: 0.5px;
+        }
+
+        .mv-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e62429, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .mv-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .mv-card {
+            background: #1f0808; /* Dark crimson shadow */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(230, 36, 41, 0.2);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(166, 18, 22, 0.4);
+        }
+
+        .mv-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            /* Cinematic high contrast */
+            filter: brightness(0.9) contrast(1.15) saturate(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .mv-card:hover img {
+            filter: brightness(1) contrast(1) saturate(1.2);
+        }
+
+        .mv-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .mv-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #e62429; /* Official Marvel Red */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .mv-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .mv-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e62429, transparent);
+            margin: 18px auto;
+        }
+
+        .mv-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #c9baba;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .mv-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #e62429;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f7f2f2; /* Stark white/gray */
+            color: #2b0b0b;            /* Dark text */
+        }
+
+        .light-mode .mv-hero {
+            /* Bright hero red */
+            background: radial-gradient(ellipse at 50% 60%, #ffcccc 0%, #f7e6e6 50%, #f7f2f2 100%);
+        }
+
+        .light-mode .mv-hero h1 {
+            color: #b31215;
+            text-shadow: 0 0 40px rgba(230, 36, 41, 0.2);
+        }
+
+        .light-mode .mv-hero-eyebrow {
+            color: #e62429;
+        }
+        
+        .light-mode .mv-hero-sub {
+            color: #8c1a1a;
+        }
+
+        .light-mode .mv-card {
+            background: #ffffff;
+            border: 1px solid rgba(230, 36, 41, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .mv-card:hover {
+            box-shadow: 0 16px 40px rgba(230, 36, 41, 0.15);
+        }
+
+        .light-mode .mv-card-body h2 {
+            color: #2b0b0b;
+        }
+
+        .light-mode .mv-card-body p {
+            color: #593131;
+        }
+        
+        .light-mode .mv-card-body a {
+            color: #c41e22;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="mv-hero">
+        <p class="mv-hero-eyebrow">Filming Locations</p>
+        <h1>The MCU</h1>
+        <p class="mv-hero-sub">Earth's mightiest filming locations.</p>
+        <div class="mv-hero-divider"></div>
+    </header>
+
+    <main class="mv-cards">
+
+        <div class="mv-card revealable">
+            <img src="img/avengers-hq.webp" alt="Porsche Experience Center Atlanta">
+            <div class="mv-card-body">
+                <p class="mv-card-number">Location 01</p>
+                <h2>Avengers Headquarters: Porsche Experience Center</h2>
+                <div class="mv-card-divider"></div>
+                <p>The sleek, modern facility used as the upstate New York Avengers Compound in *Captain America: Civil War*, *Spider-Man: Homecoming*, and *Avengers: Endgame* is actually the Porsche Experience Center in Atlanta, Georgia.</p>
+                <a href="map.html?lat=33.6521&lng=-84.3984&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="mv-card revealable">
+            <img src="img/new-asgard.webp" alt="St Abbs Coastal Village">
+            <div class="mv-card-body">
+                <p class="mv-card-number">Location 02</p>
+                <h2>New Asgard: St Abbs, Scotland</h2>
+                <div class="mv-card-divider"></div>
+                <p>After the destruction of their home world, Thor and the surviving Asgardians settle in a picturesque fishing village. This quiet haven seen in *Avengers: Endgame* and *Thor: Love and Thunder* is the real-world coastal village of St Abbs in the Scottish Borders.</p>
+                <a href="map.html?lat=55.8997&lng=-2.1311&z=15">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="mv-card revealable">
+            <img src="img/warrior-falls.webp" alt="Iguazu Falls">
+            <div class="mv-card-body">
+                <p class="mv-card-number">Location 03</p>
+                <h2>Warrior Falls, Wakanda: Iguazu Falls</h2>
+                <div class="mv-card-divider"></div>
+                <p>The breathtaking waterfalls where T'Challa defends his title as the Black Panther in ritual combat were heavily inspired by and augmented with establishing helicopter shots of the magnificent Iguazu Falls, located on the border of Argentina and Brazil.</p>
+                <a href="map.html?lat=-25.6953&lng=-54.4367&z=14">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="mv-card revealable">
+            <img src="img/tony-cabin.jpg" alt="Bouckaert Farm">
+            <div class="mv-card-body">
+                <p class="mv-card-number">Location 04</p>
+                <h2>Tony Stark's Cabin: Bouckaert Farm, Georgia</h2>
+                <div class="mv-card-divider"></div>
+                <p>The peaceful lakeside cabin where Tony Stark retires with Pepper and Morgan, and the site of his emotional memorial in *Avengers: Endgame*, is a real rental property located on the 8,000-acre Bouckaert Farm in Fairburn, Georgia.</p>
+                <a href="map.html?lat=33.5658&lng=-84.6641&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="mv-card revealable">
+            <img src="img/fort-bard.jpg" alt="Fort Bard, Italy">
+            <div class="mv-card-body">
+                <p class="mv-card-number">Location 05</p>
+                <h2>HYDRA Base, Sokovia: Fort Bard, Italy</h2>
+                <div class="mv-card-divider"></div>
+                <p>The snowy, mountainous HYDRA research base assaulted by the Avengers in the opening sequence of *Avengers: Age of Ultron* is Forte di Bard, a massive 19th-century fortified complex in the Aosta Valley of northern Italy.</p>
+                <a href="map.html?lat=45.6094&lng=7.7431&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

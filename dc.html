@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #030812; /* Deep midnight blue/black */
+            color: #d1dcec;            /* Soft steel-blue tinted white */
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .dc-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Classic DC Blue gradient */
+            background: radial-gradient(ellipse at 50% 60%, #003399 0%, #011438 50%, #030812 100%);
+            overflow: hidden;
+        }
+
+        /* Cinematic atmosphere/fog effect */
+        .dc-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 20% 30%, rgba(200,220,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(150,180,255,0.3) 0%, transparent 100%),
+                radial-gradient(2px 2px at 50% 70%, rgba(100,150,255,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(200,220,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(150,180,255,0.2) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(50,100,255,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .dc-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #4da6ff; /* Heroic bright blue */
+            margin-bottom: 20px;
+        }
+
+        .dc-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 50px rgba(0, 102, 255, 0.6); /* Blue energy glow */
+        }
+
+        .dc-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #99c2ff; /* Soft pastel blue */
+            letter-spacing: 0.5px;
+        }
+
+        .dc-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0055ff, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .dc-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .dc-card {
+            background: #061022; /* Dark navy shadow */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(0, 85, 255, 0.3);
+        }
+
+        .dc-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            /* Cool, slightly desaturated cinematic look */
+            filter: brightness(0.9) contrast(1.1) saturate(0.9) hue-rotate(-5deg);
+            transition: filter 0.3s ease;
+        }
+
+        .dc-card:hover img {
+            filter: brightness(1) contrast(1) saturate(1.1) hue-rotate(0deg);
+        }
+
+        .dc-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .dc-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #0066ff; /* Classic DC Blue */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .dc-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .dc-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #0055ff, transparent);
+            margin: 18px auto;
+        }
+
+        .dc-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #b3c6e6;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .dc-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #4da6ff;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f0f4f8; /* Very pale steel blue */
+            color: #0a1930;            /* Dark navy text */
+        }
+
+        .light-mode .dc-hero {
+            /* Bright hero blue gradient */
+            background: radial-gradient(ellipse at 50% 60%, #cce0ff 0%, #e6f0ff 50%, #f0f4f8 100%);
+        }
+
+        .light-mode .dc-hero h1 {
+            color: #003399;
+            text-shadow: 0 0 40px rgba(0, 102, 255, 0.2);
+        }
+
+        .light-mode .dc-hero-eyebrow {
+            color: #0055ff;
+        }
+        
+        .light-mode .dc-hero-sub {
+            color: #0044cc;
+        }
+
+        .light-mode .dc-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .dc-card:hover {
+            box-shadow: 0 16px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .light-mode .dc-card-body h2 {
+            color: #0a1930;
+        }
+
+        .light-mode .dc-card-body p {
+            color: #2b456b;
+        }
+        
+        .light-mode .dc-card-body a {
+            color: #0044cc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="dc-hero">
+        <p class="dc-hero-eyebrow">Filming Locations</p>
+        <h1>DC Comics</h1>
+        <p class="dc-hero-sub">Justice, mythology, and the silver screen</p>
+        <div class="dc-hero-divider"></div>
+    </header>
+
+    <main class="dc-cards">
+
+        <div class="dc-card revealable">
+            <img src="img/wollaton.png" alt="Wollaton Hall">
+            <div class="dc-card-body">
+                <p class="dc-card-number">Location 01</p>
+                <h2>Wayne Manor: Wollaton Hall, UK</h2>
+                <div class="dc-card-divider"></div>
+                <p>In Christopher Nolan's *The Dark Knight Rises*, the stunning Elizabethan mansion standing in for the rebuilt Wayne Manor is Wollaton Hall in Nottingham, England. Interestingly, Nottingham is situated just north of an actual village called Gotham!</p>
+                <a href="map.html?lat=52.9479&lng=-1.2097&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dc-card revealable">
+            <img src="img/themyscira.jpg" alt="Villa Cimbrone">
+            <div class="dc-card-body">
+                <p class="dc-card-number">Location 02</p>
+                <h2>Themyscira: Villa Cimbrone, Italy</h2>
+                <div class="dc-card-divider"></div>
+                <p>To bring Wonder Woman's mythical, all-female island paradise of Themyscira to life, filmmakers utilized the stunningly picturesque Amalfi Coast in Italy, specifically leaning on the breathtaking views and ancient architecture of Villa Cimbrone in Ravello.</p>
+                <a href="map.html?lat=40.6449&lng=14.6111&z=17">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dc-card revealable">
+            <img src="img/joker-stairs.webp" alt="The Joker Stairs">
+            <div class="dc-card-body">
+                <p class="dc-card-number">Location 03</p>
+                <h2>The Joker Stairs: The Bronx, New York</h2>
+                <div class="dc-card-divider"></div>
+                <p>One of the most instantly recognizable locations from modern comic book cinema is the steep flight of concrete stairs where Arthur Fleck dances in 2019's *Joker*. These famous steps connect Shakespeare and Anderson Avenues in the Bronx.</p>
+                <a href="map.html?lat=40.8359&lng=-73.9250&z=18">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dc-card revealable">
+            <img src="img/smallville.jpg" alt="Plano, Illinois">
+            <div class="dc-card-body">
+                <p class="dc-card-number">Location 04</p>
+                <h2>Smallville: Plano, Illinois</h2>
+                <div class="dc-card-divider"></div>
+                <p>For Zack Snyder's *Man of Steel*, production transformed the quiet, real-world town of Plano, Illinois into Clark Kent's hometown of Smallville, staging a massive, destructive battle between Superman and General Zod's forces right on Main Street.</p>
+                <a href="map.html?lat=41.6622&lng=-88.5361&z=15">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="dc-card revealable">
+            <img src="img/wayne-enterprises.jpg" alt="Chicago Board of Trade">
+            <div class="dc-card-body">
+                <p class="dc-card-number">Location 05</p>
+                <h2>Wayne Enterprises: Chicago Board of Trade</h2>
+                <div class="dc-card-divider"></div>
+                <p>The looming, art-deco skyscraper that served as the headquarters for Wayne Enterprises in *Batman Begins* is the Chicago Board of Trade Building. The streets directly below it also hosted the chaotic semi-truck flipping stunt in *The Dark Knight*.</p>
+                <a href="map.html?lat=41.8778&lng=-87.6322&z=17">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

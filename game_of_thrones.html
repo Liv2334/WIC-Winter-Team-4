@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Thrones Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #05080c; /* Deep obsidian black/blue */
+            color: #d0d7e1;            /* Pale steel white */
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .got-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Ice and shadow gradient */
+            background: radial-gradient(ellipse at 50% 60%, #152b40 0%, #0a131c 50%, #05080c 100%);
+            overflow: hidden;
+        }
+
+        /* Falling snow / ice dust effect */
+        .got-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 20% 30%, rgba(200,230,255,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(200,230,255,0.4) 0%, transparent 100%),
+                radial-gradient(2px 2px at 50% 70%, rgba(180,220,255,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(200,230,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(180,220,255,0.3) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(150,200,255,0.6) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .got-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #5d93b8; /* Icy steel blue */
+            margin-bottom: 20px;
+        }
+
+        .got-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 50px rgba(93, 147, 184, 0.6); /* Pale blue glow */
+        }
+
+        .got-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #9cbdd4; /* Soft frost */
+            letter-spacing: 0.5px;
+        }
+
+        .got-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5d93b8, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .got-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .got-card {
+            background: #0a111a; /* Dark iron shadow */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(93, 147, 184, 0.2);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .got-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(42, 85, 122, 0.4);
+        }
+
+        .got-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            /* Cool, gritty, cinematic look */
+            filter: brightness(0.85) contrast(1.15) saturate(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .got-card:hover img {
+            filter: brightness(1) contrast(1.05) saturate(1);
+        }
+
+        .got-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .got-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #5d93b8; /* Icy blue */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .got-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .got-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #5d93b8, transparent);
+            margin: 18px auto;
+        }
+
+        .got-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #b0c2d1;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .got-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #5d93b8;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f2f5f8; /* Pale frost/snow */
+            color: #1a2530;            /* Dark iron text */
+        }
+
+        .light-mode .got-hero {
+            /* Bright snowy morning gradient */
+            background: radial-gradient(ellipse at 50% 60%, #d8e3ed 0%, #e6eef5 50%, #f2f5f8 100%);
+        }
+
+        .light-mode .got-hero h1 {
+            color: #1d3c54;
+            text-shadow: 0 0 40px rgba(93, 147, 184, 0.3);
+        }
+
+        .light-mode .got-hero-eyebrow {
+            color: #2a557a;
+        }
+        
+        .light-mode .got-hero-sub {
+            color: #385e7d;
+        }
+
+        .light-mode .got-card {
+            background: #ffffff;
+            border: 1px solid rgba(93, 147, 184, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .light-mode .got-card:hover {
+            box-shadow: 0 16px 40px rgba(93, 147, 184, 0.2);
+        }
+
+        .light-mode .got-card-body h2 {
+            color: #1a2530;
+        }
+
+        .light-mode .got-card-body p {
+            color: #3b4e60;
+        }
+        
+        .light-mode .got-card-body a {
+            color: #2a557a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="got-hero">
+        <p class="got-hero-eyebrow">Filming Locations</p>
+        <h1>Game of Thrones</h1>
+        <p class="got-hero-sub">Visit the locations that make up Westeros</p>
+        <div class="got-hero-divider"></div>
+    </header>
+
+    <main class="got-cards">
+
+        <div class="got-card revealable">
+            <img src="img/kings-landing.webp" alt="Dubrovnik Old Town">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 01</p>
+                <h2>King's Landing: Dubrovnik, Croatia</h2>
+                <div class="got-card-divider"></div>
+                <p>The breathtaking, walled coastal city of Dubrovnik served as the primary filming location for King's Landing. Fans can walk the exact stone streets where Cersei Lannister's infamous "Walk of Shame" was filmed, specifically down the Jesuit Staircase.</p>
+                <a href="map.html?lat=42.6411&lng=18.1073&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/winterfell.webp" alt="Castle Ward">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 02</p>
+                <h2>Winterfell: Castle Ward, Northern Ireland</h2>
+                <div class="got-card-divider"></div>
+                <p>The ancestral home of House Stark was brought to life at Castle Ward, an 18th-century National Trust property. The historic farmyard was the site of the archery range where Jon Snow taught Bran to shoot in the very first episode.</p>
+                <a href="map.html?lat=54.3736&lng=-5.5780&z=15">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/dragonstone.webp" alt="Gaztelugatxe">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 03</p>
+                <h2>Dragonstone: Gaztelugatxe, Spain</h2>
+                <div class="got-card-divider"></div>
+                <p>The winding, dramatic stone footbridge leading up to Daenerys Targaryen's ancestral fortress is absolutely real. Located in the Basque Country of Spain, San Juan de Gaztelugatxe features 241 steps connecting the mainland to the rocky hermitage.</p>
+                <a href="map.html?lat=43.4473&lng=-2.7850&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/kingsroad.webp" alt="The Dark Hedges">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 04</p>
+                <h2>The Kingsroad: The Dark Hedges, Northern Ireland</h2>
+                <div class="got-card-divider"></div>
+                <p>When Arya Stark escapes King's Landing disguised as a boy, she travels down a hauntingly beautiful, tunnel-like road of twisted beech trees. This natural phenomenon, planted in the 18th century, is known locally as The Dark Hedges.</p>
+                <a href="map.html?lat=55.1345&lng=-6.3807&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/arrowhead-mountain.webp" alt="Kirkjufell Mountain">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 05</p>
+                <h2>Arrowhead Mountain: Kirkjufell, Iceland</h2>
+                <div class="got-card-divider"></div>
+                <p>The "mountain shaped like an arrowhead" that The Hound sees in the flames—and where Jon Snow's party ventures to capture a wight—is Kirkjufell. It is one of Iceland's most photographed mountains, known for its distinct peak and nearby waterfalls.</p>
+                <a href="map.html?lat=64.9272&lng=-23.3115&z=14">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/yunkai.webp" alt="Aït Benhaddou">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 06</p>
+                <h2>Yunkai and Pentos: Aït Benhaddou, Morocco</h2>
+                <div class="got-card-divider"></div>
+                <p>The ancient, mud-brick fortified village of Aït Benhaddou on the edge of the Sahara Desert stood in for the slaver city of Yunkai (the Yellow City), which Daenerys laid siege to, as well as parts of the Free City of Pentos.</p>
+                <a href="map.html?lat=31.0470&lng=-7.1319&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="got-card revealable">
+            <img src="img/highgarden.webp" alt="Castillo de Almodóvar del Río">
+            <div class="got-card-body">
+                <p class="got-card-number">Location 07</p>
+                <h2>Highgarden: Castillo de Almodóvar del Río, Spain</h2>
+                <div class="got-card-divider"></div>
+                <p>The lush, wealthy seat of House Tyrell was depicted using this stunning Moorish castle in Andalusia. It was here that Jaime Lannister marched the Lannister army to sack the castle, and where Lady Olenna Tyrell delivered her famous final words.</p>
+                <a href="map.html?lat=37.8073&lng=-5.0232&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

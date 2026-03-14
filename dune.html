@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dune Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a110a; /* Deep, dark spice brown */
+            color: #e8d9c8;            /* Bleached sand text */
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .dn-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Arrakis sunset gradient: Deep orange to dark brown */
+            background: radial-gradient(ellipse at 50% 60%, #804c00 0%, #3d240d 50%, #1a110a 100%);
+            overflow: hidden;
+        }
+
+        /* Golden/Spice dust effect */
+        .dn-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,200,100,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(255,180,80,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 50% 70%, rgba(255,220,150,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,190,110,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(255,210,130,0.2) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(200,150,50,0.4) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .dn-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #ff9900; /* Vibrant Spice Orange */
+            margin-bottom: 20px;
+        }
+
+        .dn-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 50px rgba(255, 166, 0, 0.5); /* Orange glow */
+        }
+
+        .dn-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #ffc966; /* Soft gold */
+            letter-spacing: 0.5px;
+        }
+
+        .dn-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #cc7a00, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .dn-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .dn-card {
+            background: #261910; /* Darker spice card bg */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 166, 0, 0.15);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(153, 77, 0, 0.3);
+        }
+
+        .dn-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            /* Warm, hazy desert filter */
+            filter: brightness(0.85) sepia(0.3) saturate(1.2);
+            transition: filter 0.3s ease;
+        }
+
+        .dn-card:hover img {
+            filter: brightness(1) sepia(0) saturate(1);
+        }
+
+        .dn-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .dn-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #cc7a00; /* Burnt orange */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .dn-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #eeeeee;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .dn-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #994d00, transparent);
+            margin: 18px auto;
+        }
+
+        .dn-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #c4b3a3;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .dn-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #cc7a00;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f7f3e8; /* Bleached sand white */
+            color: #3d240d;            /* Dark brown text */
+        }
+
+        .light-mode .dn-hero {
+            /* Hazy desert sun gradient */
+            background: radial-gradient(ellipse at 50% 60%, #ffebcc 0%, #fff2e0 50%, #f7f3e8 100%);
+        }
+
+        .light-mode .dn-hero h1 {
+            color: #663300;
+            text-shadow: 0 0 40px rgba(204, 122, 0, 0.15);
+        }
+
+        .light-mode .dn-hero-eyebrow {
+            color: #994d00;
+        }
+        
+        .light-mode .dn-hero-sub {
+            color: #806640;
+        }
+
+        .light-mode .dn-card {
+            background: #ffffff;
+            border: 1px solid rgba(153, 77, 0, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .light-mode .dn-card:hover {
+            box-shadow: 0 16px 40px rgba(153, 77, 0, 0.12);
+        }
+
+        .light-mode .dn-card-body h2 {
+            color: #3d240d;
+        }
+
+        .light-mode .dn-card-body p {
+            color: #5c4a38;
+        }
+        
+        .light-mode .dn-card-body a {
+            color: #994d00;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="dn-hero">
+        <p class="dn-hero-eyebrow">Filming Locations</p>
+        <h1>Dune</h1>
+        <p class="dn-hero-sub">Walk the real version of Arrakis</p>
+        <div class="dn-hero-divider"></div>
+    </header>
+
+    <main class="dn-cards">
+
+        <div class="dn-card revealable">
+            <img src="img/wadi-rum.jpeg" alt="Wadi Rum Desert">
+            <div class="dn-card-body">
+                <p class="dn-card-number">Location 01</p>
+                <h2>Arrakis Open Desert: Wadi Rum, Jordan</h2>
+                <div class="dn-card-divider"></div>
+                <p>The vast, reddish-orange landscapes of Wadi Rum served as the primary location for the deep deserts of Arrakis. This iconic valley, also known as the Valley of the Moon, provided the majestic rock formations and sweeping sands where Paul and Jessica find the Fremen.</p>
+                <a href="map.html?lat=29.5761&lng=35.4211&z=13">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dn-card revealable">
+            <img src="img/liwa.jpg" alt="Liwa Oasis Dunes">
+            <div class="dn-card-body">
+                <p class="dn-card-number">Location 02</p>
+                <h2>The Great Dune Sea: Liwa Oasis, Abu Dhabi</h2>
+                <div class="dn-card-divider"></div>
+                <p>For the seemingly endless rolling sand dunes required for the 'Empty Quarter' of Arrakis, production moved to the Liwa Oasis in Abu Dhabi. These massive, untouched dunes provided the terrifying scale needed for the worm-ridden desert landscape.</p>
+                <a href="map.html?lat=23.1256&lng=53.7661&z=12">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dn-card revealable">
+            <img src="img/caladan.jpg" alt="Stadlandet Peninsula Coast">
+            <div class="dn-card-body">
+                <p class="dn-card-number">Location 03</p>
+                <h2>Caladan Ancestral Home: Stadlandet, Norway</h2>
+                <div class="dn-card-divider"></div>
+                <p>To contrast the dry heat of Arrakis, the Atreides homeworld of Caladan needed to feel lush, wet, and ancient. The dramatic cliffs and sweeping ocean views of the Stadlandet peninsula in Norway provided the backdrop for the Atreides' final days on their native planet.</p>
+                <a href="map.html?lat=62.1158&lng=5.1383&z=14">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="dn-card revealable">
+            <img src="img/altamira.webp" alt="Rub' al Khali Desert">
+            <div class="dn-card-body">
+                <p class="dn-card-number">Location 04</p>
+                <h2>Gurney's Hideout / Spice Silos: Rub' al Khali</h2>
+                <div class="dn-card-divider"></div>
+                <p>Sections of the Rub' al Khali desert (the Empty Quarter) stretching into Abu Dhabi were used for specific sequences in *Dune: Part Two*, including the rocky areas where Gurney Halleck handles spice harvesting operations and smuggler hideouts.</p>
+                <a href="map.html?lat=22.0000&lng=50.0000&z=11">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="dn-card revealable">
+            <img src="img/sietch.jpg" alt="Tre Cime di Lavaredo">
+            <div class="dn-card-body">
+                <p class="dn-card-number">Location 05</p>
+                <h2>Fremen Sietch Exterior: Dolomites, Italy</h2>
+                <div class="dn-card-divider"></div>
+                <p>While most Sietch interiors were sets, the production used modified shots of the dramatic, jagged peaks of the Dolomites in Italy (specifically around Tre Cime di Lavaredo) to represent the harsh, rocky mountain entrances to the Fremen underground cities.</p>
+                <a href="map.html?lat=46.6186&lng=12.3025&z=15">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supernatural Filming Locations</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/home-button.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #080808; /* Impala Black */
+            color: #dcdcdc;            /* Salt white */
+            font-family: 'Crimson Text', Georgia, serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* ── Hero ── */
+        .sn-hero {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 0px 80px;
+            /* Dark highway night and tail-light red gradient */
+            background: radial-gradient(ellipse at 50% 60%, #3a0b0b 0%, #170404 50%, #080808 100%);
+            overflow: hidden;
+        }
+
+        /* Spark / Salt / Ash dust effect */
+        .sn-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 80% 20%, rgba(255,100,100,0.3) 0%, transparent 100%),
+                radial-gradient(2px 2px at 50% 70%, rgba(255,150,150,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 60%, rgba(200,50,50,0.2) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 40%, rgba(255,255,255,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .sn-hero-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #b30000; /* Blood red */
+            margin-bottom: 20px;
+        }
+
+        .sn-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 6vw, 60px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 0 50px rgba(179, 0, 0, 0.6); /* Red neon glow */
+        }
+
+        .sn-hero-sub {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: #b0b0b0; /* Steel chrome */
+            letter-spacing: 0.5px;
+        }
+
+        .sn-hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b30000, transparent);
+            margin: 28px auto 0;
+        }
+
+        /* ── Cards ── */
+        .sn-cards {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 70px 24px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .sn-card {
+            background: #121212; /* Dark grunge shadow */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(179, 0, 0, 0.2);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 56px rgba(138, 5, 5, 0.3);
+        }
+
+        .sn-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            margin: 0;
+            /* Moody, slightly desaturated, high contrast look */
+            filter: brightness(0.8) contrast(1.2) saturate(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .sn-card:hover img {
+            filter: brightness(1) contrast(1.1) saturate(1.1);
+        }
+
+        .sn-card-body {
+            padding: 32px 36px 36px;
+            text-align: center;
+        }
+
+        .sn-card-number {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #b30000; /* Dark red */
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sn-card-body h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(16px, 2.5vw, 21px);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0;
+            line-height: 1.35;
+        }
+
+        .sn-card-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b30000, transparent);
+            margin: 18px auto;
+        }
+
+        .sn-card-body p {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            line-height: 1.75;
+            color: #b3b3b3;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .sn-card-body a {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.75;
+            color: #cc0000;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* ── Scroll reveal ── */
+        .revealable {
+            --reveal-distance: 60px;
+            opacity: 0;
+            transform: translateY(var(--reveal-distance));
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Light Mode ── */
+        body.light-mode {
+            background-color: #f4efe8; /* Old journal pages / cheap motel wallpaper */
+            color: #2b2b2b;            /* Dark ink text */
+        }
+
+        .light-mode .sn-hero {
+            /* Faded blood and aged paper gradient */
+            background: radial-gradient(ellipse at 50% 60%, #e6d2d2 0%, #ede6df 50%, #f4efe8 100%);
+        }
+
+        .light-mode .sn-hero h1 {
+            color: #8b0000;
+            text-shadow: 0 0 40px rgba(139, 0, 0, 0.2);
+        }
+
+        .light-mode .sn-hero-eyebrow {
+            color: #a62b2b;
+        }
+        
+        .light-mode .sn-hero-sub {
+            color: #5c5c5c;
+        }
+
+        .light-mode .sn-card {
+            background: #ffffff;
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .light-mode .sn-card:hover {
+            box-shadow: 0 16px 40px rgba(139, 0, 0, 0.15);
+        }
+
+        .light-mode .sn-card-body h2 {
+            color: #1a1a1a;
+        }
+
+        .light-mode .sn-card-body p {
+            color: #4d4d4d;
+        }
+        
+        .light-mode .sn-card-body a {
+            color: #b30000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html"><button class="nav-button home-icon"><img src="img/home-button.png" alt="Home" class="nav-icon"></button></a></li>
+            <li class="nav-sep"></li>
+            <li class="dropdown">
+                <button class="dropbtn">Locations</button>
+                <div class="dropdown-content">
+                    <a href="Star_Wars.html">Star Wars</a>
+                    <a href="pride_prej.html">Pride & Prejudice</a>
+                    <a href="twilight.html">Twilight</a>
+                    <a href="vampire_diaries.html">The Vampire Diaries</a>
+                    <a href="star_trek.html">Star Trek</a>
+                    <a href="hunger_games.html">The Hunger Games</a>
+                    <a href="harry_potter.html">Harry Potter</a>
+                    <a href="indiana_jones.html">Indiana Jones</a>
+                    <a href="divergent.html">Divergent</a>
+                    <a href="dune.html">Dune</a>
+                    <a href="lord_of_the_rings.html">Lord of the Rings</a>
+                    <a href="marvel.html">Marvel</a>
+                    <a href="dc.html">DC</a>
+                    <a href="game_of_thrones.html">Game of Thrones</a>
+                    <a href="supernatural.html">Supernatural</a>
+                </div>
+            </li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="connect.html">Connect With Us</a></li>
+            <li class="nav-sep"></li>
+            <li><button id="theme-button">Toggle Theme</button></li>
+        </ul>
+    </nav>
+
+    <header class="sn-hero">
+        <p class="sn-hero-eyebrow">Filming Locations</p>
+        <h1>Supernatural</h1>
+        <p class="sn-hero-sub">Saving people, hunting things. The family business.</p>
+        <div class="sn-hero-divider"></div>
+    </header>
+
+    <main class="sn-cards">
+
+        <div class="sn-card revealable">
+            <img src="img/riverview.jpg" alt="Riverview Hospital">
+            <div class="sn-card-body">
+                <p class="sn-card-number">Location 01</p>
+                <h2>Every Abandoned Asylum: Riverview Hospital</h2>
+                <div class="sn-card-divider"></div>
+                <p>Located in Coquitlam, British Columbia, this massive, mostly abandoned psychiatric facility was one of the most heavily used filming locations in the entire series. It stood in for Roosevelt Asylum, countless hospitals, prisons, and demonic hideouts throughout all 15 seasons.</p>
+                <a href="map.html?lat=49.2452&lng=-122.8055&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="sn-card revealable">
+            <img src="img/fort-langley.avif" alt="Fort Langley Community Hall">
+            <div class="sn-card-body">
+                <p class="sn-card-number">Location 02</p>
+                <h2>Small Town America: Fort Langley</h2>
+                <div class="sn-card-divider"></div>
+                <p>Whenever Sam and Dean rolled into a quaint, seemingly innocent Midwestern town, there was a good chance they were actually in Fort Langley, BC. Its yellow Community Hall and main street storefronts appeared in numerous episodes, most notably "Route 666".</p>
+                <a href="map.html?lat=49.1685&lng=-122.5806&z=16">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="sn-card revealable">
+            <img src="img/lake-manitoc.webp" alt="Buntzen Lake">
+            <div class="sn-card-body">
+                <p class="sn-card-number">Location 03</p>
+                <h2>Lake Manitoc: Buntzen Lake</h2>
+                <div class="sn-card-divider"></div>
+                <p>Surrounded by dense, moody pine forests, Buntzen Lake in Anmore was the perfect stand-in for backwoods supernatural occurrences. It was famously used in the Season 1 episode "Dead in the Water," where a vengeful spirit haunted the depths of Lake Manitoc.</p>
+                <a href="map.html?lat=49.3361&lng=-122.8592&z=14">Find on Map</a>
+            </div>
+        </div>
+
+        <div class="sn-card revealable">
+            <img src="img/st-marys.webp" alt="St. Andrew's-Wesley United Church">
+            <div class="sn-card-body">
+                <p class="sn-card-number">Location 04</p>
+                <h2>St. Mary's Convent: St. Andrew's-Wesley Church</h2>
+                <div class="sn-card-divider"></div>
+                <p>In the epic Season 4 finale "Lucifer Rising," Azazel slaughters a group of nuns to speak to Lucifer. This dark and dramatic scene was filmed inside the stunning, gothic interior of St. Andrew's-Wesley United Church in downtown Vancouver.</p>
+                <a href="map.html?lat=49.2821&lng=-123.1252&z=17">Find on Map</a> 
+            </div>
+        </div>
+
+        <div class="sn-card revealable">
+            <img src="img/brittania-mine.webp" alt="Britannia Mine Museum">
+            <div class="sn-card-body">
+                <p class="sn-card-number">Location 05</p>
+                <h2>Abandoned Warehouses: Britannia Mine Museum</h2>
+                <div class="sn-card-divider"></div>
+                <p>If the Winchester brothers were investigating an old, rusted-out industrial site or fighting vampires in a gritty warehouse, they were often at the historic Britannia Mine Museum. Its sprawling, multi-level copper mill provided the perfect dark, rusted atmosphere.</p>
+                <a href="map.html?lat=49.6263&lng=-123.2045&z=16">Find on Map</a> 
+            </div>
+        </div>
+
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
