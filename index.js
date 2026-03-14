@@ -90,7 +90,6 @@ let count = 3;
 
 const addParticipant = (event) => {
     // Step 2: Write your code to manipulate the DOM here
-    event.preventDefault();
 
     // Get the inputs (ignoring email for privacy as instructed)
     const name = document.getElementById('name').value;
